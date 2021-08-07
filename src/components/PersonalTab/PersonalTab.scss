@@ -1,0 +1,172 @@
+
+.personal-tab{
+    width: 350px;
+    margin: 0 auto;
+
+    &__title{
+        font-weight: 300;
+        font-size: 16px;
+        color: #FFFFFF;
+        margin: 40px 0px;
+    }
+}
+
+.form{
+    &--personal{
+        align-items: flex-start;
+        margin-bottom: 32px;
+
+        .label{
+            margin-bottom: 24px;
+            &-text{
+                position: static;
+                margin-bottom: 24px;
+                display: block;
+                color: rgba(255, 255, 255, 0.8);
+            }
+
+            &:last-child{
+                margin-bottom: 0;
+            }
+
+            &-date{
+                display: none;
+                &--show{
+                    display: block;
+                }
+            }
+        }
+
+        .input{
+            margin-bottom: 0;
+
+            &::placeholder{
+                font-weight: 300;
+                font-size: 16px;
+                color: rgba(255, 255, 255, 0.4);
+            }
+        }
+
+        .radio-list{
+            .radio{
+                display:  inline-block;
+                margin-right: 40px;
+                margin-bottom: 10px;
+                
+                .label{
+                    display: flex;
+                    align-items: center;
+                }
+
+                &-text{
+                    font-weight: 300;
+                    font-size: 16px;
+                    color: rgba(255, 255, 255, 0.8);
+                    margin-left: 8px;
+                }
+
+                &__btn{
+                    margin-right: 8px;
+                    visibility: hidden;
+                    width: 24px;
+                    height: 24px;
+
+                    &::after{
+                        visibility: visible;
+                        display: block;
+                        width: 24px;
+                        height: 24px;
+                        content: url("../../img/default-radio.svg");
+                    }
+
+                    &::after:hover{
+                        border-color: #FFFFFF;
+                    }
+                    
+                    &:checked::after{
+                        display: block;
+                        content: url("../../img/checked-radio.svg");
+                        border: none;
+                    }
+
+                    
+                }
+            }
+        }
+        
+    }
+
+    .upload-file{
+        visibility: hidden;
+        margin-bottom: 32px;
+
+        &::after{
+            visibility: visible;
+            cursor: pointer;
+            display: block;
+            content: url("../../img/upload-photo.svg");
+            width: auto;
+            height: auto;
+        }
+    }
+
+    .button-date{
+        outline: none;
+        border: none;
+        cursor: pointer;
+        background: transparent;
+        margin-left: 16px;
+        display: none;
+
+        &--show{
+            display: inline-block;
+        }
+    }
+
+    .button-next{
+        font-size: 16px;
+        line-height: 20px;
+        color: rgba(255, 255, 255, 0.8);
+        margin: 64px 0px;
+        border:none;
+        outline: none;
+        cursor: pointer;
+        background: transparent;
+        display: flex;
+        position: absolute;
+        bottom: -64px;
+        right: 32px;
+    }
+
+    .button-text{
+        margin-right: 8px;
+    }
+}
+
+@media  screen and (max-width:370px) {
+    .personal-tab{
+        width: 100%;
+
+        &__title{
+            margin: 40px 0px 20px 17px;
+        }
+    }
+    
+    .form{
+        &--personal{
+            .label{
+                width: 97%;
+                margin-left: 17px;
+            }
+            .input{
+                width:80%;
+            }
+        }
+
+        .upload-file {
+            margin-left: 17px;
+            width: 50%;
+        }
+    }
+}
+

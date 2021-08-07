@@ -1,0 +1,74 @@
+@charset "UTF-8";
+
+$medium-light-white-color:rgba(255, 255, 255, 0.8);
+/* Arrows */
+
+.slick-slide{
+    width: 200px !important;
+    margin-right: 2%;
+}
+
+.slick-prev,
+.slick-next {
+    position: absolute;
+
+    line-height: 0px;
+    font-size: 0px;
+    cursor: pointer;
+    background: transparent;
+    color: transparent;
+
+    display: block;
+    opacity: 0.5;
+    border: 0.5px solid $medium-light-white-color;
+    border-radius: 50%;
+
+    &:hover{
+       opacity: 1;
+       border-color: #fff; 
+    }
+
+    
+}
+
+.slick-prev {
+    width: 46px;
+    height: 46px;
+    bottom: 40px;
+    left: calc(50% - 63px);
+    &:before{
+        content: url("../../img/arrow-left.svg");
+    }
+}
+
+.slick-next {
+    width: 60px;
+    height: 60px;
+    bottom: 33px;
+    left: calc(50% - 0px);
+
+    &:before{
+        content: url("../../img/arrow-right.svg");
+    }
+}
+.arrow-mobile{
+    display: none;
+}
+
+@media screen and (max-width: 768px){
+    .slick-prev{
+        display: none !important;
+        &.arrow-mobile{
+            display: block !important;
+        }
+    }
+    .slick-next {
+        display: none !important;
+        &.arrow-mobile{
+            display: block !important;
+        }
+    }
+}
+
+
+

@@ -1,0 +1,58 @@
+@import "../../styles/variables";
+
+.hamburger{
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    position: relative;
+    border:none;
+    outline: none;
+    cursor: pointer;
+    background: transparent;
+    margin-right: 45.33px;
+    z-index: 2;
+
+    &__dash{
+        background-color: $medium-light-white-color;
+        width: 21.33px;
+        height: 2.67px;
+        position: absolute;
+        left: 5.33px;
+
+        &:first-child{
+            top: 6px;
+        }
+
+        &:nth-child(2){
+            top:12.67px;
+        }
+
+        &:last-child{
+            top: 19.34px;
+            width: 10.67px;       
+        }
+    }
+
+    &:hover{
+        .hamburger__dash{
+           background-color: $main-color; 
+        }
+    }
+
+    &--close{
+        transition: transform 0.5s ease-in;
+        .hamburger__dash:first-child{
+            top:12.67px;
+            transform: rotateZ(-45deg);
+        }
+
+        .hamburger__dash:nth-child(2){
+            transform: rotateZ(45deg);
+        }
+
+        .hamburger__dash:last-child{
+            opacity: 0;
+        }
+
+    }
+}

@@ -1,0 +1,63 @@
+.payments{
+    &-methods{
+        &__title{
+            font-size: 18px;
+            color: #FFFFFF;
+            text-align: center;
+            margin: 40px 0px;
+        }
+
+        &__list{
+            display: flex;
+            justify-content: center;
+        }
+
+        &__item:first-child{
+            margin-right: 40px;
+        }
+    }
+}
+
+.get-tickets{
+    &__title{
+        font-size: 18px;
+        color: #FFFFFF;
+        text-align: center;
+        margin: 40px 0px; 
+    }
+
+    &__form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .label{
+        width: 314px;
+        &--checkbox{
+            display: flex;
+        }
+        
+        .checkbox::before{
+            left:25px;
+        }
+    }
+
+    .label-text{
+        position: static;
+        margin-left: 50px;
+        margin-top: -10px;
+        width: max-content;
+        line-height: 20px;
+    }
+
+    .button{
+        margin: 20px;
+    }
+}
+
+@media sreen and (max-width:360px){
+    .label--checkbox{
+        width: 95%;
+    }
+}

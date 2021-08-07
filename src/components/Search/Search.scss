@@ -1,0 +1,25 @@
+@import "../../styles/variables";
+
+.header-search{
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-left: 40px;
+    background: transparent;
+
+    .header__svg{
+        fill: $medium-light-white-color;
+    }
+
+    &:hover{            
+        .header__svg{
+            fill: $main-color;
+        }
+    }
+}
+
+@media screen and (max-width: 768px){
+    .header-search{
+        margin: 0 20px;
+    }
+}

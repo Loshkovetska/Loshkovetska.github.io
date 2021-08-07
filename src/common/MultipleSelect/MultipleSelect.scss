@@ -1,0 +1,62 @@
+.MuiFormControl-root.multi-control{
+
+    .MuiMenu-paper{
+        background-color: #0F1014 !important;
+    }
+    .MuiMenuItem-root{
+        color: #fff !important;
+    }
+    
+    .MuiListItem-button:hover {
+        text-decoration: none;
+        background-color: #fff !important;
+        color: #0F1014 !important;
+    }
+    
+    .MuiInput-underline:after, .MuiInput-underline::before{
+        display: none;
+    }
+    
+    .MuiSelect-select {
+        max-width: 314px;
+        min-width: auto;
+        outline: none;
+    
+       &:focus {
+            border-radius: 0;
+            background-color: transparent;
+        }
+    }
+    
+    .MuiInputBase-input{
+        color: #fff !important;
+    }
+    
+    .MuiSelect-selectMenu {
+        min-width: auto;
+        width: 294px !important;
+        max-width: 294px !important;
+        color: #fff !important;
+        margin-bottom: 32px !important;
+        border: 1px solid rgba(255, 255, 255, 0.4) !important;
+        padding: 10px !important;
+        background-color: transparent !important;
+    
+        &:hover{
+            border-color: #FFFFFF !important;
+        }
+    }
+    
+    .MuiSelect-icon{
+        display: none !important;
+    }
+}
+
+@media screen and (max-width:370px){
+    .MuiFormControl-root.multi-control{
+        width:80%;
+    }
+    .MuiSelect-selectMenu.multi-control{
+        width: 100%;
+    }
+}

@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+$medium-light-white-color:rgba(255, 255, 255, 0.8);
+/* Arrows */
+
+.movies-day{
+    .slick-prev,
+    .slick-next {
+        position: absolute;
+        display: block !important;
+        height: 11px;
+        width: 22px;
+        line-height: 0px;
+        font-size: 0px;
+        cursor: pointer;
+        background: transparent;
+        color: transparent;
+        top: calc(50% + 28px)  !important;
+        -webkit-transform: translate(0, -50%);
+        -ms-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        padding: 0;
+        border: none;
+        outline: none;
+        &:hover, &:focus {
+            outline: none;
+            background: transparent;
+            color: transparent;
+        }
+        &:before {
+            font-size: 20px;
+            line-height: 1;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    }
+    
+    .slick-prev {
+        left: 0px !important;
+        &:before{
+            content: url("../../img/arrow-left.svg");
+        }
+    }
+    
+    .slick-next {
+        right: 0px;
+        left: auto;
+        &:before{
+            content: url("../../img/arrow-right.svg");
+        }
+    }
+}
+
+
+

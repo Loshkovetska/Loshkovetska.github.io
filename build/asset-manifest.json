@@ -1,0 +1,40 @@
+{
+  "files": {
+    "main.css": "/static/css/main.30f0adf3.chunk.css",
+    "main.js": "/static/js/main.91b5d5c1.chunk.js",
+    "main.js.map": "/static/js/main.91b5d5c1.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.15607648.js",
+    "runtime-main.js.map": "/static/js/runtime-main.15607648.js.map",
+    "static/js/2.a83a4e8b.chunk.js": "/static/js/2.a83a4e8b.chunk.js",
+    "static/js/2.a83a4e8b.chunk.js.map": "/static/js/2.a83a4e8b.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.30f0adf3.chunk.css.map": "/static/css/main.30f0adf3.chunk.css.map",
+    "static/js/2.a83a4e8b.chunk.js.LICENSE.txt": "/static/js/2.a83a4e8b.chunk.js.LICENSE.txt",
+    "static/media/aladin.09f1dfb3.png": "/static/media/aladin.09f1dfb3.png",
+    "static/media/Navigation.scss": "/static/media/arrow-up.578a1ea0.svg",
+    "static/media/DaysSlider.scss": "/static/media/arrow-right.035a4ee6.svg",
+    "static/media/blackwidow.99675788.png": "/static/media/blackwidow.99675788.png",
+    "static/media/bodyguard.024826ef.png": "/static/media/bodyguard.024826ef.png",
+    "static/media/PersonalTab.scss": "/static/media/upload-photo.1ef186e2.svg",
+    "static/media/combat.0a4bb185.jpg": "/static/media/combat.0a4bb185.jpg",
+    "static/media/cruella.058a2f16.png": "/static/media/cruella.058a2f16.png",
+    "static/media/joker.44255bd2.png": "/static/media/joker.44255bd2.png",
+    "static/media/logo.12f335e5.svg": "/static/media/logo.12f335e5.svg",
+    "static/media/map.87b9718f.png": "/static/media/map.87b9718f.png",
+    "static/media/moonlight.193e6610.png": "/static/media/moonlight.193e6610.png",
+    "static/media/pop.376e2405.png": "/static/media/pop.376e2405.png",
+    "static/media/squad.2c9c4f3f.jpg": "/static/media/squad.2c9c4f3f.jpg",
+    "static/media/tor.e77d19a1.jpg": "/static/media/tor.e77d19a1.jpg",
+    "static/media/user.15f6f486.png": "/static/media/user.15f6f486.png",
+    "static/media/venom.ecc0baa7.png": "/static/media/venom.ecc0baa7.png",
+    "static/media/water1.b1fdd7a0.png": "/static/media/water1.b1fdd7a0.png",
+    "static/media/water2.bef8961d.png": "/static/media/water2.bef8961d.png",
+    "static/media/water3.8294872c.png": "/static/media/water3.8294872c.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.15607648.js",
+    "static/js/2.a83a4e8b.chunk.js",
+    "static/css/main.30f0adf3.chunk.css",
+    "static/js/main.91b5d5c1.chunk.js"
+  ]
+}

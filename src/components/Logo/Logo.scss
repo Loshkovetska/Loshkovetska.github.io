@@ -1,0 +1,14 @@
+.logo{
+    width: 189px;
+    z-index: 2;
+    &__img{
+        width:100%;
+    }
+}
+
+@media screen and (max-width: 425px){
+    .logo{
+        width: 124px;
+        margin-left: -28px;
+    }
+}

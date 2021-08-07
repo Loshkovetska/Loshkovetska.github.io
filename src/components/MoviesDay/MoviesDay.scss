@@ -1,0 +1,13 @@
+@import "../../styles/variables";
+
+.movies-day{
+    background-color: $secondary-color;
+    padding: 40px 0 100px;
+
+    &__container{
+        width: 95%;
+        height: 100%;
+        margin: 0 auto;
+        max-width: 1440px;
+    }
+}

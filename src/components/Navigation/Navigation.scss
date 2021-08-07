@@ -1,0 +1,153 @@
+@import "../../styles/variables";
+
+.navigation{
+    width: 372px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    .social-networks{
+        display: none;
+    }
+
+    &--hidden{
+        visibility: hidden;
+    }
+
+    &--open-menu{
+        background-color: $secondary-color;
+        backdrop-filter: blur(20px);
+        
+        z-index: 2;
+
+        .navigation__list, 
+        .langs, 
+        .social-networks{
+            display: block;
+            padding-left: 32px;
+        }
+    }
+
+    &__top{
+        display: flex;
+        align-items: center;
+        margin: 26px 0 0 32px;
+    }
+
+    &__list{
+        width: 232px;
+        list-style: none;
+        display: none;
+    }
+
+    &__item{
+        font-size: 18px;
+        font-weight: 300; 
+        margin-top: 45px;
+
+        &--list{
+            position: relative;
+            &::after{
+                position: absolute;
+                top: -1px;
+                right: 50px;
+                display:block;
+                content: url("../../img/arrow-down.svg");
+            }
+
+            &.navigation__item--open-list::after{
+                content: url("../../img/arrow-up.svg");
+            }
+
+            &.navigation__item--open-list{
+                .sub-list{
+                    display:block;
+                }
+            }
+        }
+    }
+
+    &__link{
+        cursor: pointer;
+        text-decoration: none;
+        color: $medium-light-white-color;
+
+        &:hover{
+            color: $main-color;
+        }
+    }
+
+    
+    .sub-list{
+        display: none;
+        list-style: none;
+    
+        &__item{
+            margin-top: 24px;
+        }
+    
+        &__link{
+            text-decoration: none;
+            color: $light-white-color;
+        }
+    }
+}
+
+.social-networks{
+    margin: 84px 0 28px;
+
+    &__item{
+        margin-left:24px;
+
+        &:first-child{
+            margin-left: 0;
+        }
+
+        &:hover{
+            .insta{
+                fill: #C13584;
+            }
+
+            .youtube{
+                fill: #FF0000;
+            }
+
+            .fb{
+                fill: #4267B2;
+            }
+        }
+    }
+
+    &__svg{
+        fill: $medium-light-white-color;
+        transition: fill 0.5s ease-in;
+    }
+}
+
+.langs{
+    display: none;
+    &__link{
+        text-decoration: none;
+        font-size: 16px;
+        margin-left: 16px;
+        color: rgba(255, 255, 255, 0.6);
+        transition: text-decoration, color 0.5s linear;
+ 
+        &:first-child{
+            margin-left: 0;
+        }
+
+        &:hover{
+            text-decoration: underline;
+            color: rgba(255, 255, 255, 1);
+        }
+
+    }
+}
+
+@media screen and (max-width: 376px){
+    .navigation{
+        width: 100%;
+    }
+}

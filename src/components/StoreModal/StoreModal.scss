@@ -1,0 +1,248 @@
+.pop-up-store{
+    width:100%;
+    visibility:hidden;
+    min-height: 98px;
+    background: #000000;
+    padding: 38px;
+
+
+    &__title{
+        font-weight: 300;
+        font-size: 18px;
+        color: #FFFFFF;
+        text-align: center;
+        margin: 40px 0;
+    }
+
+    &--show{
+        visibility:visible;
+        position: absolute;
+        top: 70%;
+        left: 0;
+    }
+
+    &--resize{
+        top:0;
+        z-index: 1;
+        backdrop-filter: blur(20px);
+        background: rgba(15, 16, 20, 0.8);
+
+        .pop-up-store__bottom{
+            margin-top: 40px;
+        }
+    }
+
+    &--open{
+        position: static;
+        background: transparent;
+
+        .pop-up-store__content{
+            display: block;
+        }
+        .pop-up-store__button{
+            visibility: hidden;
+        }
+
+        .pop-up-store__resize-button{
+            visibility: hidden;
+    
+            &--show{
+                visibility:hidden;
+               
+            }
+        }
+
+        .pop-up-store__bottom{
+            margin-top: 40px;
+        }
+
+        .button-next{
+            visibility: hidden;
+        }
+    }
+
+    &__button{
+        border: none;
+        outline: none;
+        background: transparent;
+        position: absolute;
+        right: 30px;
+        top: 20px;
+    }
+    
+    &__resize-button{
+        visibility: hidden;
+
+        &--show{
+            visibility:visible;
+            background: transparent;
+            outline: none;
+            border: none;
+            transform: rotate(-90deg);
+            margin-right: 40px;
+        }
+    }
+
+    &__top{
+        visibility:hidden;
+
+        &--show{
+            visibility:visible;
+        }
+    }
+
+    &__bottom{
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+
+    .button-next{
+        border: none;
+        outline: none;
+        background: transparent;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        position: absolute;
+        right: 38px;
+
+        .button-text{
+            margin-right: 10px;
+        }
+
+        &:hover{
+            background: transparent;
+        }
+    }
+
+    &__general-price{
+        font-weight: 300;
+        font-size: 18px;
+        color: #FFFFFF;
+        margin-right: 48px;
+    }
+
+    &__count{
+        font-weight: 300;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.8);
+        margin-right: 24px;
+    }
+
+    &__content{
+        width: 100%;
+        display: none;
+
+        &--show{
+            display: block;
+        }
+    }
+}
+
+.tickets-sect,.market-sect{
+    width: 714px;
+    margin: 0 auto;
+    max-width: 714px;
+    overflow: auto;
+
+    &__top{
+        display: flex;
+        justify-content: space-between;
+        margin: 40px 0 20px;
+    }
+
+    &__title{
+        font-size: 18px;
+        color: #FFFFFF;
+    }
+
+    &__price{
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.8);
+    }
+}
+
+.tickets-table,
+.market-table{
+    border-collapse: collapse;
+    width: 100%;
+
+    &__thead{
+        &-col{
+            padding: 32px 0;
+            font-weight: 300;
+            font-size: 12px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.9);
+        }
+    }
+    
+    &__rows{
+        margin-top: 32px;
+    }
+
+    &__col{
+        font-weight: 500;
+        font-size: 14px;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.9);
+        line-height: 150%;
+        background: rgba(255, 255, 255, 0.04);
+        padding: 10px 0;
+
+        &:last-child{
+            background: transparent;
+        }
+    }
+
+    &__button{
+        border:none;
+        outline: none;
+        background: transparent;
+    }
+
+    .market-img{
+        width: 100px;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .tickets-sect,.market-sect{
+        width: 100%;
+    }
+
+    .pop-up-store__bottom{
+        flex-direction: column;
+    }
+
+    .pop-up-store .button-next{
+        position: static;
+    }
+
+    .market-table .market-img {
+        width: 70px;
+    }
+
+    .pop-up-store__general-price,
+    .pop-up-store__count,
+    .pop-up-store__resize-button--show{
+        margin: 0;
+    }
+
+    
+    .market-table__thead-col{
+        padding: 32px 5px;
+    }
+}
+
+@media screen and (max-width:425px){
+    .tickets-table,.market-table{
+        width: 357px;
+        overflow-x: scroll;
+    }
+
+    .pop-up-store{
+        padding: 15px;
+    }
+}
