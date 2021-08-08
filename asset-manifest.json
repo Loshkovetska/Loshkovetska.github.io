@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/cinema-park/static/css/main.a763a922.chunk.css",
-    "main.js": "/cinema-park/static/js/main.a1066378.chunk.js",
-    "main.js.map": "/cinema-park/static/js/main.a1066378.chunk.js.map",
+    "main.js": "/cinema-park/static/js/main.1431f3c6.chunk.js",
+    "main.js.map": "/cinema-park/static/js/main.1431f3c6.chunk.js.map",
     "runtime-main.js": "/cinema-park/static/js/runtime-main.f9ee7f74.js",
     "runtime-main.js.map": "/cinema-park/static/js/runtime-main.f9ee7f74.js.map",
     "static/js/2.a83a4e8b.chunk.js": "/cinema-park/static/js/2.a83a4e8b.chunk.js",
@@ -35,6 +35,6 @@
     "static/js/runtime-main.f9ee7f74.js",
     "static/js/2.a83a4e8b.chunk.js",
     "static/css/main.a763a922.chunk.css",
-    "static/js/main.a1066378.chunk.js"
+    "static/js/main.1431f3c6.chunk.js"
   ]
 }
