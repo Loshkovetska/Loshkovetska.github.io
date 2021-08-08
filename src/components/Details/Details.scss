@@ -150,4 +150,8 @@
     
         }
     }
+
+    .preview:hover .preview__tooltip {
+        display: none;
+    }
 }

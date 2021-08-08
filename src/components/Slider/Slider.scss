@@ -15,7 +15,7 @@
     background-color: rgba(0, 0, 0, 0.8);
     background-blend-mode: multiply;
     background-size: cover;
-    background-position: 0% -4%;
+    background-position: 0 10%;
 
     &__content{
         width: 668px;
@@ -218,9 +218,9 @@
     }
 }
 
-@media screen and (min-width:1440px){
+@media screen and (min-width:1441px){
     .slider{
-        background-position: 0 -138px;
+        background-position: 0 -500px;
     }
 }
 
@@ -241,6 +241,14 @@
     .previews{
         &__items{
             flex-wrap: wrap;
+        }
+    }
+}
+
+@media screen and (max-width: 425px){
+    .slider-content{
+        &__movie-title{
+            font-size: 29px;
         }
     }
 }

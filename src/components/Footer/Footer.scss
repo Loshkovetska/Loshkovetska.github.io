@@ -16,12 +16,13 @@
         margin: 48px 0px 28px;
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
+        justify-content: center;
         
         &__item{
             display: inline-block;
             margin-right: 48px;
             margin-bottom: 20px;
+            margin-left: 48px;
         }
 
         &__item:hover .footer-list__link{
