@@ -24,7 +24,7 @@ export default function SearchModal(props) {
     function handlerChange(e) {
         const inputValue = e.target.value;
 
-        let url = `http://www.omdbapi.com/?apikey=d3ff230f&s=${inputValue}`;
+        let url = `https://www.omdbapi.com/?apikey=d3ff230f&s=${inputValue}`;
 
         getMovies(url);
     }
