@@ -4,13 +4,13 @@ import "./Comments.scss";
 import { users } from "../../mockData/users";
 import { Heart } from "../Svg/Svg";
 
-
-
+const user = ["", false];
 export default function Comments() {
     const [comment, setComment] = useState();
     const [countComments, setCount] = useState(comments.length);
     const [likes, setLikes] = useState(0);
-    const [user, setUser] = useState();
+    //const [user, setUser] = useState(["", false]);
+
 
     function onChangeHadler(e) {
         setComment(e.target.value);
@@ -38,21 +38,23 @@ export default function Comments() {
 
     function putLike(e) {
         const [userStorage] = users.filter(user => user.email.includes(localStorage.getItem("user")));
+
         if (!userStorage) {
             alert("Оцінити коментар можливо лише після авторизації!");
             return;
         }
 
-
         let ind = +e.currentTarget.dataset.id;
 
-        if (user === userStorage.email && +comments[ind].countLikes > 0) {
+        if (+comments[ind].countLikes > 0 && user[1]) {
             comments[ind].countLikes = +comments[ind].countLikes - 1;
-            setUser("");
+            user[0] = "";
+            user[1] = false;
         }
-        else {
+        else if (!user[1]) {
             comments[ind].countLikes = +comments[ind].countLikes + 1;
-            setUser(userStorage.email);
+            user[0] = userStorage.user;
+            user[1] = true;
         }
 
         setLikes(comments[ind].countLikes);

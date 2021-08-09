@@ -8,21 +8,24 @@ export default function ContactTab(props) {
 
     function validData(...args) {
         const [data1, data2, param] = args;
+
         if (data1.value !== data2.value) {
             param === "email" ?
                 alert("E-mail не співпадають!") :
                 alert("Паролі не співпадають!");
-            return;
+            return false;
         }
+        return true;
     }
 
     function getUserData(e) {
         e.preventDefault();
 
         const form = e.target.elements;
-
-        validData(form["user-email"], form["user-repEmail"], "email");
-        validData(form["user-pass"], form["user-repPass"], "pass");
+        if (!validData(form["user-email"], form["user-repEmail"], "email") ||
+            !validData(form["user-pass"], form["user-repPass"], "pass")) {
+            return;
+        }
 
         const properties = {
             email: form["user-email"].value,
