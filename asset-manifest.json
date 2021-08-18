@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/cinema-park/static/css/main.309f5553.chunk.css",
-    "main.js": "/cinema-park/static/js/main.0eedd834.chunk.js",
-    "main.js.map": "/cinema-park/static/js/main.0eedd834.chunk.js.map",
+    "main.css": "/cinema-park/static/css/main.1e757bb0.chunk.css",
+    "main.js": "/cinema-park/static/js/main.bee9d933.chunk.js",
+    "main.js.map": "/cinema-park/static/js/main.bee9d933.chunk.js.map",
     "runtime-main.js": "/cinema-park/static/js/runtime-main.f9ee7f74.js",
     "runtime-main.js.map": "/cinema-park/static/js/runtime-main.f9ee7f74.js.map",
-    "static/js/2.a83a4e8b.chunk.js": "/cinema-park/static/js/2.a83a4e8b.chunk.js",
-    "static/js/2.a83a4e8b.chunk.js.map": "/cinema-park/static/js/2.a83a4e8b.chunk.js.map",
+    "static/js/2.91feb9e1.chunk.js": "/cinema-park/static/js/2.91feb9e1.chunk.js",
+    "static/js/2.91feb9e1.chunk.js.map": "/cinema-park/static/js/2.91feb9e1.chunk.js.map",
     "index.html": "/cinema-park/index.html",
-    "static/css/main.309f5553.chunk.css.map": "/cinema-park/static/css/main.309f5553.chunk.css.map",
-    "static/js/2.a83a4e8b.chunk.js.LICENSE.txt": "/cinema-park/static/js/2.a83a4e8b.chunk.js.LICENSE.txt",
+    "static/css/main.1e757bb0.chunk.css.map": "/cinema-park/static/css/main.1e757bb0.chunk.css.map",
+    "static/js/2.91feb9e1.chunk.js.LICENSE.txt": "/cinema-park/static/js/2.91feb9e1.chunk.js.LICENSE.txt",
     "static/media/aladin.09f1dfb3.png": "/cinema-park/static/media/aladin.09f1dfb3.png",
     "static/media/Navigation.scss": "/cinema-park/static/media/arrow-up.578a1ea0.svg",
     "static/media/DaysSlider.scss": "/cinema-park/static/media/arrow-right.035a4ee6.svg",
@@ -33,8 +33,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.f9ee7f74.js",
-    "static/js/2.a83a4e8b.chunk.js",
-    "static/css/main.309f5553.chunk.css",
-    "static/js/main.0eedd834.chunk.js"
+    "static/js/2.91feb9e1.chunk.js",
+    "static/css/main.1e757bb0.chunk.css",
+    "static/js/main.bee9d933.chunk.js"
   ]
 }
