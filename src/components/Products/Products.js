@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import goods from "../../mockData/goods";
 import "./Products.scss";
 import Select from "../../common/DefaultSelect/DefaultSelect";
+import { Link } from "react-router-dom";
 
 export function Product(props) {
     const good = props.good;
@@ -91,13 +92,13 @@ export default function Products(props) {
             <div className="cinema-menu__title">Кіноменю:</div>
             <ul className="cinema-menu__list-filters filters">
                 <li className="filters__item">
-                    <a className="filters__link" href="#" onClick={() => filterData()}>Все</a>
+                    <Link className="filters__link" to="#" onClick={() => filterData()}>Все</Link>
                 </li>
                 <li className="filters__item">
-                    <a className="filters__link" href="#" onClick={() => filterData("попкорн")}>Попкорн</a>
+                    <Link className="filters__link" to="#" onClick={() => filterData("попкорн")}>Попкорн</Link>
                 </li>
                 <li className="filters__item">
-                    <a className="filters__link" href="#" onClick={() => filterData("напої")}>Напої</a>
+                    <Link className="filters__link" to="#" onClick={() => filterData("напої")}>Напої</Link>
                 </li>
             </ul>
             <div className="cinema-menu__list-goods">

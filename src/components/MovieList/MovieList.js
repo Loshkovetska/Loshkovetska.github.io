@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 import "../MovieList/MovieList.scss";
 import { movieData as movies } from "../../mockData/movieData";
 import { HalfStar, Star } from "../Svg/Svg";
@@ -44,14 +44,14 @@ export default function MovieList(props) {
             (previews.length > 1)
                 ? [...previews].map(({ href, time, tooltip: { price, hall } }, index) => (
                     <div key={index} className="preview" >
-                        <a href={href} className="preview__link">{time}</a>
+                        <Link href={href} className="preview__link">{time}</Link>
                         <div className="preview__tooltip">
                             <span className="preview__price">{price}</span>
                             <span className="preview__hall">{hall}</span>
                         </div>
                     </div>))
                 : (<div className="preview">
-                    <a href={previews[0].href} className="preview__link">{previews[0].time}</a>
+                    <Link href={previews[0].href} className="preview__link">{previews[0].time}</Link>
                     <div className="preview__tooltip">
                         <span className="preview__price">{previews[0].tooltip.price}</span>
                         <span className="preview__hall">{previews[0].tooltip.hall}</span>
@@ -69,7 +69,7 @@ export default function MovieList(props) {
             filteredData.map(movie => {
                 return (
                     <div className="movie" key={movie.id}>
-                        <a style={{
+                        <Link style={{
                             background: `linear-gradient(180deg, rgba(126, 125, 125, 0.3) 0%, rgba(112, 111, 111, 0.36875) 11.46%, rgba(0, 0, 0, 0.9) 100%),url(${movie.src})`,
                             backgroundSize: "cover"
                         }} className="movie__poster poster" >
@@ -82,7 +82,7 @@ export default function MovieList(props) {
                                 <div className="poster__rating">{getStars(movie.rating)}</div>
                             </div>
 
-                        </a>
+                        </Link>
                         <div className="poster__previews previews">
                             {getPreviews(movie.previews)}
                         </div>

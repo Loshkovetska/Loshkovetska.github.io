@@ -3,7 +3,6 @@ import { movieData as sliderData } from "../../mockData/movieData";
 import MovieSlider from "../MovieSlider/MovieSlider";
 import { Link } from "react-router-dom";
 import { Trailer, GetMore } from "../Svg/Svg";
-//import Slider from "../Slider/Slider";
 
 import "../NextMovies/NextMovies.scss";
 
@@ -42,7 +41,7 @@ export default function NextMovies(props) {
     function getPreviews(previews) {
         return [...previews].map(({ href, time, tooltip: { price, hall } }, index) => (
             <div key={index} className="previews__item preview" >
-                <a href={href} className="preview__link">{time}</a>
+                <Link href={href} className="preview__link">{time}</Link>
                 <div className="preview__tooltip">
                     <span className="preview__price">{price}</span>
                     <span className="preview__hall">{hall}</span>
@@ -94,12 +93,3 @@ export default function NextMovies(props) {
         </section >
     );
 }
-
-
-
-
- // return (
-    //     <section className="main__ next-movies next-movies">
-    //         <Slider isPresale={true} />
-    //     </section>
-    // );}

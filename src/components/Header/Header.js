@@ -32,9 +32,9 @@ export function HeaderTop(props) {
     function getTabsOfStore() {
         return (
             <div className="header__tabs tabs-header">
-                <a className={"tabs-header__link" + (props.storeTab === 1 ? " tabs-header__link--active" : "")}>01 Обрати місце</a>
-                <a className={"tabs-header__link" + (props.storeTab === 2 ? " tabs-header__link--active" : "")}>02 Магазин</a>
-                <a className={"tabs-header__link" + (props.storeTab === 3 ? " tabs-header__link--active" : "")}>03 Оплата</a>
+                <Link className={"tabs-header__link" + (props.storeTab === 1 ? " tabs-header__link--active" : "")}>01 Обрати місце</Link>
+                <Link className={"tabs-header__link" + (props.storeTab === 2 ? " tabs-header__link--active" : "")}>02 Магазин</Link>
+                <Link className={"tabs-header__link" + (props.storeTab === 3 ? " tabs-header__link--active" : "")}>03 Оплата</Link>
             </div>
         );
     }
@@ -42,8 +42,8 @@ export function HeaderTop(props) {
     function getTabsOfRegistration() {
         return (
             <div className="header__tabs tabs-header">
-                <a className={"tabs-header__link" + (props.tab ? " tabs-header__link--active" : "")} >01 Персональні дані</a>
-                <a className={"tabs-header__link" + (!props.tab ? " tabs-header__link--active" : "")}>02 Контактні дані і пароль</a>
+                <Link className={"tabs-header__link" + (props.tab ? " tabs-header__link--active" : "")} >01 Персональні дані</Link>
+                <Link className={"tabs-header__link" + (!props.tab ? " tabs-header__link--active" : "")}>02 Контактні дані і пароль</Link>
             </div>
         );
     }

@@ -15,10 +15,11 @@
     }
 
     &--show{
-        visibility:visible;
-        position: absolute;
-        top: 70%;
+        visibility: visible;
+        position: fixed;
+        top: 36%;
         left: 0;
+        z-index: 1000;
     }
 
     &--resize{

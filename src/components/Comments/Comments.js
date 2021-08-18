@@ -9,8 +9,6 @@ export default function Comments() {
     const [comment, setComment] = useState();
     const [countComments, setCount] = useState(comments.length);
     const [likes, setLikes] = useState(0);
-    //const [user, setUser] = useState(["", false]);
-
 
     function onChangeHadler(e) {
         setComment(e.target.value);

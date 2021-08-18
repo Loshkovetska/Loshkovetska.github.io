@@ -61,9 +61,9 @@ export default function LoginModal(props) {
                     <div className="login-content__methods-login methods-login">
                         <span className="methods-login__title">Увійти за допомогою</span>
                         <div className="methods-login__links">
-                            <a className="login-link"><Google /></a>
-                            <a className="login-link"><Facebook /></a>
-                            <a className="login-link"><Apple /></a>
+                            <Link className="login-link" to="#"><Google /></Link>
+                            <Link className="login-link" to="#"><Facebook /></Link>
+                            <Link className="login-link" to="#"><Apple /></Link>
                         </div>
                     </div>
                     <div className="login-content__form login-form">
@@ -91,7 +91,7 @@ export default function LoginModal(props) {
                             </label>
                             <button className="button" type="submit">Увійти</button>
                         </form>
-                        <a href="#" className="login-form__forgot-link">Забули пароль?</a>
+                        <Link to="#" className="login-form__forgot-link">Забули пароль?</Link>
                     </div>
                 </div>
                 <div className="login-modal__bottom">

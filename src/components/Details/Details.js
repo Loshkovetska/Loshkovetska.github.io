@@ -73,10 +73,10 @@ export default function Details() {
                 <div className="details__poster">
                     <img src={movie.src} alt="poster" className="poster-image" />
                     <div className="details__links">
-                        <a href={movie.urlTrailer} className="get-more__item" target="__blank">
+                        <Link href={movie.urlTrailer} className="get-more__item" target="__blank">
                             <Trailer className={"get-more__svg"} />
                             <span className="get-more__title">Трейлер</span>
-                        </a>
+                        </Link>
                         <Share />
                     </div>
                 </div>
