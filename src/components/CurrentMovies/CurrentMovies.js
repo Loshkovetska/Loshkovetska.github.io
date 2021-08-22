@@ -38,7 +38,7 @@ export default function CurrentMovies(props) {
     function getPreviews(previews) {
         return [...previews].map(({ href, time, tooltip: { price, hall } }, index) => (
             <div key={index} className="previews__item preview" >
-                <Link href={href} className="preview__link">{time}</Link>
+                <Link to={href} className="preview__link">{time}</Link>
                 <div className="preview__tooltip">
                     <span className="preview__price">{price}</span>
                     <span className="preview__hall">{hall}</span>

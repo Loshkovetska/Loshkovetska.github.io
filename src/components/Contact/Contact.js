@@ -17,14 +17,14 @@ export default function Contact() {
                             <div className="info__icon">
                                 <Telephone className={"info__svg"} />
                             </div>
-                            <Link className="info__link" href="tel:+380936202100">+38 093 620 21 00</Link>
-                            <Link className="info__link" href="tel:+380986202100">+38 098 620 21 00</Link>
+                            <Link className="info__link" to="tel:+380936202100">+38 093 620 21 00</Link>
+                            <Link className="info__link" to="tel:+380986202100">+38 098 620 21 00</Link>
                         </div>
                         <div className="info__col">
                             <div className="info__icon">
                                 <Message className={"info__svg"} />
                             </div>
-                            <Link className="info__link" href="mailto:rodina.nikolaev@gmail.com">rodina.nikolaev@gmail.com</Link>
+                            <Link className="info__link" to="mailto:rodina.nikolaev@gmail.com">rodina.nikolaev@gmail.com</Link>
                         </div>
                         <SocialNetworks class={"info__col"} />
                     </div>
@@ -34,7 +34,7 @@ export default function Contact() {
                         <div className="location__icon">
                             <Location className={"location__svg"} />
                         </div>
-                        <Link href="#" className="location__link">м. Миколаїв вул. Московська 9</Link>
+                        <Link to="#" className="location__link">м. Миколаїв вул. Московська 9</Link>
                     </div>
                     <div className="location__map">
                         <img src={map} alt="map" className="image-map" />

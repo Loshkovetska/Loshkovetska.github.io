@@ -11,8 +11,8 @@ export default function Footer() {
         <footer className="footer">
             <div className="footer__container">
                 <div className="footer__app-links app-links">
-                    <Link className="app-links__item"><img className="link-image" src={googlePlay} alt="google-play" /></Link>
-                    <Link className="app-links__item"><img className="link-image" src={appStore} alt="app-store" /></Link>
+                    <Link className="app-links__item" to="#"><img className="link-image" src={googlePlay} alt="google-play" /></Link>
+                    <Link className="app-links__item" to="#"><img className="link-image" src={appStore} alt="app-store" /></Link>
                 </div>
                 <ul className="footer__list footer-list">
                     {
