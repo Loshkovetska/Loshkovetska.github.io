@@ -94,7 +94,7 @@ export default function MovieList(props) {
     const [date, month] = props.dateForList.split(",");
     return (
         <>
-            <div className="movie-title">В прокаті з {date} серпня</div>
+            <div className="movie-title">В прокаті з {date} вересня</div>
             <section className="movie-list">
                 {showList()}
             </section>
