@@ -36,7 +36,7 @@ export default function SignInDialog() {
   );
   return (
     <Dialog
-      title="Вхід"
+      title="Sign In"
       titleClassName="text-lg text-white"
       trigger={
         <button className="group flex size-8 cursor-pointer items-center justify-center">
@@ -59,7 +59,7 @@ export default function SignInDialog() {
               form={form}
               name="password"
               inputType="password"
-              placeholder="Пароль"
+              placeholder="Password"
               showPassIcon
               itemClassName="w-full"
             />
@@ -68,7 +68,7 @@ export default function SignInDialog() {
                 value={form.getValues("remember")}
                 onCheckedChange={onCheck}
               />
-              Запам’ятати мене
+              Remember me?
             </Label>
           </div>
         </Form>
@@ -77,7 +77,7 @@ export default function SignInDialog() {
           disabled={!form.formState.isValid}
           className="w-full"
         >
-          Увійти
+          Submit
         </Button>
       </div>
     </Dialog>

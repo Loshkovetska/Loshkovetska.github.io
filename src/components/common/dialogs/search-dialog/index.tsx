@@ -52,7 +52,8 @@ export default function SearchDialog() {
         className={cn(
           "mx-auto flex w-full flex-col items-center gap-8 translate-y-0 transition-all",
           {
-            "absolute top-1/2 -translate-y-1/2": !initialRef.current,
+            "absolute top-1/2 -translate-y-1/2 max-lg:w-[calc(100%-48px)]":
+              !initialRef.current,
           }
         )}
       >
@@ -65,7 +66,7 @@ export default function SearchDialog() {
           <div className="flex w-full flex-col items-center gap-8">
             <Label className="text-center text-md text-white">
               Результатів знайдено
-              {` ${data?.total_results} `}
+              {` ${data?.total_results || 0} `}
             </Label>
             <ScrollArea className="flex h-[68vh] w-[88%]">
               <div className="grid w-full grid-cols-5 gap-3 max-lg:grid-cols-3 max-md:grid-cols-2">

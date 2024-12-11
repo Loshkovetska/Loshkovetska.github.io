@@ -17,6 +17,7 @@ import {
 
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 
 const Form = FormProvider;
@@ -191,6 +192,7 @@ type FormElementPropType = {
   inputType?: React.HTMLInputTypeAttribute;
   label?: string;
   showPassIcon?: boolean;
+  isTextArea?: boolean;
 };
 
 const FormElement = ({
@@ -203,6 +205,7 @@ const FormElement = ({
   inputType,
   label,
   showPassIcon,
+  isTextArea,
 }: FormElementPropType) => {
   const [dynamicType, setDynamicType] = React.useState(false);
   return (
@@ -214,23 +217,32 @@ const FormElement = ({
         <FormItem className={itemClassName}>
           {label && <FormLabel className="text-white">{label}</FormLabel>}
           <FormControl>
-            <Input
-              {...field}
-              placeholder={placeholder}
-              sizeB="lg"
-              type={showPassIcon && dynamicType ? "text" : inputType}
-              variant={fieldState.invalid ? "destructive" : "default"}
-              disabled={disabled}
-              iconRight={
-                showPassIcon ? (
-                  !dynamicType ? (
-                    <EyeOff onClick={() => setDynamicType(true)} />
-                  ) : (
-                    <Eye onClick={() => setDynamicType(false)} />
-                  )
-                ) : undefined
-              }
-            />
+            {isTextArea ? (
+              <Textarea
+                {...field}
+                placeholder={placeholder}
+                variant={fieldState.invalid ? "destructive" : "default"}
+                disabled={disabled}
+              />
+            ) : (
+              <Input
+                {...field}
+                placeholder={placeholder}
+                sizeB="lg"
+                type={showPassIcon && dynamicType ? "text" : inputType}
+                variant={fieldState.invalid ? "destructive" : "default"}
+                disabled={disabled}
+                iconRight={
+                  showPassIcon ? (
+                    !dynamicType ? (
+                      <EyeOff onClick={() => setDynamicType(true)} />
+                    ) : (
+                      <Eye onClick={() => setDynamicType(false)} />
+                    )
+                  ) : undefined
+                }
+              />
+            )}
           </FormControl>
           <FormMessage />
         </FormItem>

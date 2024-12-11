@@ -38,6 +38,7 @@ export default {
       },
       zIndex: {
         full: "1000000000",
+        50: "50",
       },
     },
   },

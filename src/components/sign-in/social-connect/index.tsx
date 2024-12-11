@@ -6,7 +6,7 @@ export default function SocialConnect() {
   return (
     <div className="flex flex-col">
       <span className="mb-6 text-center text-sm font-light text-white/90">
-        Увійти за допомогою
+        Sign in with
       </span>
       <div className="flex justify-center gap-10">
         <Button variant="transparent">{/* <Gmail /> */}</Button>

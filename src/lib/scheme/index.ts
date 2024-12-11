@@ -6,4 +6,10 @@ const loginScheme = z.object({
   remember: z.number().optional(),
 });
 
-export { loginScheme };
+const contactScheme = z.object({
+  email: z.string().email("Wrong email"),
+  name: z.string().min(3),
+  comment: z.string().min(10),
+});
+
+export { contactScheme, loginScheme };

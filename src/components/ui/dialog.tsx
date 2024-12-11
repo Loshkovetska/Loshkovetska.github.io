@@ -39,6 +39,17 @@ const DialogTitle = React.forwardRef<
   />
 ));
 DialogTitle.displayName = DialogPrimitive.Title.displayName;
+const DialogDescription = React.forwardRef<
+  React.ElementRef<typeof DialogPrimitive.Description>,
+  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description>
+>(({ className, ...props }, ref) => (
+  <DialogPrimitive.Description
+    ref={ref}
+    className={cn("text-sm text-muted-foreground", className)}
+    {...props}
+  />
+));
+DialogDescription.displayName = DialogPrimitive.Description.displayName;
 
 const DialogFooter = ({
   className,
@@ -90,34 +101,57 @@ DialogContent.displayName = DialogPrimitive.Content.displayName;
 
 type DialogPropType = {
   title?: string;
+  description?: string;
   trigger?: React.ReactNode;
   className?: string;
   titleClassName?: string;
+  descriptionClassName?: string;
   iconClassName?: string;
+  open?: boolean;
+  icon?: React.ReactNode;
+  onOpenChange?: (fl: boolean) => void;
 } & PropsWithChildren;
 
 export default function Dialog({
   title,
+  description,
   trigger,
   className,
   titleClassName,
+  descriptionClassName,
   iconClassName,
   children,
+  open,
+  icon,
+  onOpenChange,
 }: DialogPropType) {
   return (
-    <DialogPrimitive.Root>
-      <DialogTrigger asChild>{trigger}</DialogTrigger>
+    <DialogPrimitive.Root
+      open={open}
+      onOpenChange={onOpenChange}
+    >
+      {trigger && <DialogTrigger asChild>{trigger}</DialogTrigger>}
       <DialogContent className={className}>
         <DialogHeader className="flex items-center justify-between">
-          {title && (
+          {title && !description && (
             <DialogTitle className={titleClassName}>{title}</DialogTitle>
           )}
+
           <DialogClose className="focus:ring-ring data-[state=open]:bg-accent data-[state=open]:text-muted-foreground absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:pointer-events-none">
             <X className={cn("size-4", iconClassName)} />
             <span className="sr-only">Close</span>
           </DialogClose>
         </DialogHeader>
         {children}
+        {icon}
+        {title && description && (
+          <DialogTitle className={titleClassName}>{title}</DialogTitle>
+        )}
+        {description && (
+          <DialogDescription className={descriptionClassName}>
+            {description}
+          </DialogDescription>
+        )}
       </DialogContent>
     </DialogPrimitive.Root>
   );

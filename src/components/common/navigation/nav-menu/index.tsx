@@ -1,7 +1,9 @@
+"use client";
 import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
+import { DropdownMenuItem } from "@/components/ui/dropdown";
 import { cn } from "@/lib/utils";
 
 import { NAV_MENU_LIST } from "../constants";
@@ -10,17 +12,21 @@ export default function NavigationMenu() {
   const [isOpenSubList, setOpenList] = useState(false);
 
   return (
-    <ul className="flex w-[232px] list-none flex-col gap-10 pl-8">
+    <ul className="flex w-full list-none flex-col gap-10 pl-8 lg:w-[232px]">
       {NAV_MENU_LIST.map((item) => (
-        <li
-          className="text-lg font-light"
+        <DropdownMenuItem
+          className="justify-left flex-col items-start text-lg font-light"
           key={item.title}
         >
           {item.subList ? (
             <>
               <span
                 className="flex cursor-pointer items-center justify-between gap-3 text-white"
-                onClick={() => setOpenList((prev) => !prev)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  e.preventDefault();
+                  setOpenList((prev) => !prev);
+                }}
               >
                 {item.title}{" "}
                 <ChevronDown
@@ -28,7 +34,7 @@ export default function NavigationMenu() {
                 />
               </span>
               {isOpenSubList && (
-                <ul className="mt-5 flex list-none flex-col gap-6">
+                <ul className="mt-5 flex list-none flex-col gap-6 pl-2">
                   {item.subList.map((subItem) => (
                     <li key={subItem.title}>
                       <Link
@@ -50,7 +56,7 @@ export default function NavigationMenu() {
               {item.title}
             </Link>
           )}
-        </li>
+        </DropdownMenuItem>
       ))}
     </ul>
   );

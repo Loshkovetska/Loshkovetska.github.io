@@ -1,47 +1,38 @@
-"use client";
 import { Menu } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 
-import { cn } from "@/lib/utils";
+import { DropdownMenu } from "@/components/ui/dropdown";
 
 import SocialNetworks from "../social-networks";
 
 import NavigationMenu from "./nav-menu";
 
 export default function Navigation() {
-  const [isOpen, setOpen] = useState(false);
-
   return (
-    <nav
-      className={cn(
-        "w-[372px] h-[900px] top-0 left-0 absolute lg:w-full lg:px-4",
-        {
-          "bg-dark backdrop-blur-md z-[2]": isOpen,
+    <nav className="flex w-full items-center">
+      <DropdownMenu
+        trigger={
+          <button className="relative z-[2] mr-10 flex size-8 items-center justify-center">
+            <Menu className="stroke-white" />
+          </button>
         }
-      )}
-    >
-      <div className="mb-8 mt-6 flex items-center">
-        <button
-          className="relative z-[2] mr-[45px] flex size-8 items-center justify-center"
-          onClick={() => setOpen((prev) => !prev)}
-        >
-          <Menu className="stroke-white" />
-        </button>
-        <Link
-          href="/"
-          className="relative h-[48px] w-[189px] max-sm:ml-[-28px] max-sm:w-[124px]"
-        >
-          <Image
-            src={require("../../../img/logo.svg")}
-            fill
-            alt="logo"
-          />
-        </Link>
-      </div>
-      {isOpen && <NavigationMenu />}
-      {isOpen && <SocialNetworks />}
+        className="mt-4 w-screen border-none bg-dark/30 pt-6 backdrop-blur-3xl lg:mt-6 lg:w-[232px]"
+      >
+        <NavigationMenu />
+        <SocialNetworks className="justify-center px-8" />
+      </DropdownMenu>
+      <Link
+        href="/"
+        className="relative h-12 w-[189px] max-sm:ml-[-28px] max-sm:w-[124px]"
+      >
+        <Image
+          src="/logo.png"
+          fill
+          alt="logo"
+          className="object-contain object-center"
+        />
+      </Link>
     </nav>
   );
 }

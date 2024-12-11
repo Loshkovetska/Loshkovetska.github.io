@@ -1,4 +1,4 @@
-type SearchItemResult = {
+type SearchItemResultType = {
   adult: boolean;
   backdrop_path: string;
   genre_ids: number[];
@@ -17,9 +17,9 @@ type SearchItemResult = {
 
 type SearchResultType = {
   page: number;
-  results: SearchItemResult[];
+  results: SearchItemResultType[];
   total_pages: number;
   total_results: number;
 };
 
-export type { SearchItemResult, SearchResultType };
+export type { SearchItemResultType, SearchResultType };
