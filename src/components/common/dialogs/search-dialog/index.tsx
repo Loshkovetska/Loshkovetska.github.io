@@ -10,30 +10,32 @@ import { ScrollArea } from "@/components/ui/scrollarea";
 import { useSearchMoviesQuery } from "@/lib/services";
 import { cn } from "@/lib/utils";
 
-const PER_PAGE = 10;
+const PER_PAGE = 20;
 
 export default function SearchDialog() {
   const initialRef = useRef(false);
   const [inputValue, setInputValue] = useState("");
   const [page, setPage] = useState(1);
-  const { data } = useSearchMoviesQuery(`s=${inputValue}&page=${page}`, {
+  const { data } = useSearchMoviesQuery(`query=${inputValue}&page=${page}`, {
     skip: inputValue.length < 3,
   });
 
   const { canFetchNext, canFetchPrevious } = useMemo(() => {
     if (!data) return { canFetchNext: false, canFetchPrevious: false };
-    const totalResults = Number(data?.totalResults || 0);
-
-    const totalPages = Math.ceil(totalResults / PER_PAGE);
-
     return {
       canFetchPrevious: page > 1,
-      canFetchNext: page < totalPages,
+      canFetchNext: page < data?.total_pages,
     };
   }, [data, page]);
 
   const handlePageChange = useCallback((type: "next" | "prev") => {
     setPage((prev) => prev + (type === "next" ? 1 : -1));
+  }, []);
+
+  const handleValueChange = useCallback((text: string) => {
+    setInputValue(text);
+    setPage(1);
+    initialRef.current = true;
   }, []);
 
   return (
@@ -57,28 +59,25 @@ export default function SearchDialog() {
         <Input
           className="border-white/40 hover:border-white/80 lg:w-[70%]"
           value={inputValue}
-          onChange={(e) => {
-            setInputValue(e.target.value);
-            initialRef.current = true;
-          }}
+          onChange={(e) => handleValueChange(e.target.value)}
         />
         {initialRef.current && (
           <div className="flex w-full flex-col items-center gap-8">
             <Label className="text-center text-md text-white">
               Результатів знайдено
-              {` ${Number(data?.totalResults || 0)} `}
+              {` ${data?.total_results} `}
             </Label>
             <ScrollArea className="flex h-[68vh] w-[88%]">
               <div className="grid w-full grid-cols-5 gap-3 max-lg:grid-cols-3 max-md:grid-cols-2">
-                {data?.Search?.map((searchItem) => (
+                {data?.results?.map((searchItem) => (
                   <SearchItem
-                    key={searchItem.imdbID}
+                    key={searchItem.id}
                     {...searchItem}
                   />
                 ))}
               </div>
             </ScrollArea>
-            {Number(data?.totalResults || 0) > PER_PAGE && (
+            {Number(data?.total_results || 0) > PER_PAGE && (
               <div className="mx-auto flex items-center gap-4">
                 <Button
                   onClick={() => handlePageChange("prev")}

@@ -5,12 +5,17 @@ import { SearchResultType } from "@/types";
 export const searchApi = createApi({
   reducerPath: "searchApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://www.omdbapi.com/",
+    baseUrl: "https://api.themoviedb.org/3/",
+    prepareHeaders(headers, api) {
+      headers.append(
+        "Authorization",
+        `Bearer ${process.env.NEXT_PUBLIC_TMBD_TOKEN}`
+      );
+    },
   }),
   endpoints: (builder) => ({
     searchMovies: builder.query<SearchResultType, string>({
-      query: (query: string) =>
-        `?apikey=${process.env.NEXT_PUBLIC_OMDAPI_KEY}&${query}`,
+      query: (query: string) => `search/movie?${query}&sort_by=popularity.desc`,
     }),
   }),
 });

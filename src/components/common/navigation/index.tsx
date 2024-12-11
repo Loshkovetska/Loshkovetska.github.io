@@ -15,9 +15,12 @@ export default function Navigation() {
 
   return (
     <nav
-      className={cn("w-[372px] h-[900px] top-0 left-0 absolute lg:w-full", {
-        "bg-dark backdrop-blur-md z-[2]": isOpen,
-      })}
+      className={cn(
+        "w-[372px] h-[900px] top-0 left-0 absolute lg:w-full lg:px-4",
+        {
+          "bg-dark backdrop-blur-md z-[2]": isOpen,
+        }
+      )}
     >
       <div className="mb-8 mt-6 flex items-center">
         <button

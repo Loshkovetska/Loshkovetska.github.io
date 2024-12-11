@@ -1,15 +1,25 @@
 type SearchItemResult = {
-  Title: string;
-  Year: string;
-  imdbID: string;
-  Type: string;
-  Poster?: string;
+  adult: boolean;
+  backdrop_path: string;
+  genre_ids: number[];
+  id: number;
+  original_language: string;
+  original_title: string;
+  overview: string;
+  popularity: number;
+  poster_path: string;
+  release_date: string;
+  title: string;
+  video: boolean;
+  vote_average: number;
+  vote_count: number;
 };
 
 type SearchResultType = {
-  Response: string;
-  Search: SearchItemResult[];
-  totalResults: string;
+  page: number;
+  results: SearchItemResult[];
+  total_pages: number;
+  total_results: number;
 };
 
 export type { SearchItemResult, SearchResultType };

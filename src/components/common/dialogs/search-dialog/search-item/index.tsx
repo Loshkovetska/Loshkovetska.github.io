@@ -2,14 +2,14 @@ import Image from "next/image";
 
 import { SearchItemResult } from "@/types";
 
-export default function SearchItem({ Title, Poster }: SearchItemResult) {
+export default function SearchItem({ poster_path, title }: SearchItemResult) {
   return (
     <div className="relative h-[320px] w-full overflow-hidden rounded-sm bg-dark/80 opacity-50 transition-all hover:opacity-100 max-md:h-[56vw]">
-      {Poster && Poster !== "N/A" ? (
+      {poster_path ? (
         <Image
-          src={Poster}
+          src={"https://image.tmdb.org/t/p/w500/" + poster_path}
           fill
-          alt={Title}
+          alt={title}
           className="object-cover object-center"
           loading="lazy"
         />
@@ -18,8 +18,8 @@ export default function SearchItem({ Title, Poster }: SearchItemResult) {
           <span className="text-lg font-bold text-white">Image not found</span>
         </div>
       )}
-      <span className="absolute bottom-5 block w-full text-center text-white">
-        {Title}
+      <span className="absolute bottom-5 line-clamp-2 w-full px-2 text-center text-white">
+        {title}
       </span>
     </div>
   );
