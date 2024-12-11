@@ -27,20 +27,15 @@
   }
 }
 
-@layer base {
-  * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: "Montserrat", sans-serif;
-  }
-  body {
-    @apply bg-white dark:bg-dark flex flex-col;
-  }
+html {
+  @apply flex flex-col min-h-full;
+}
+body {
+  @apply bg-dark flex flex-col grow;
+}
 
-  input::-webkit-outer-spin-button,
-  input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

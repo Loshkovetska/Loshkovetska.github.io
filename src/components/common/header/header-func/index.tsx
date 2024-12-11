@@ -19,7 +19,7 @@ export default function HeaderFunc() {
   //   }
 
   return (
-    <div className="z-1 flex grow justify-end">
+    <div className="z-[1] flex grow justify-end">
       <SignInDialog />
       <SearchDialog />
       {/* {!localStorage.user ? (

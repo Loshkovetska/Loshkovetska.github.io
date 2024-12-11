@@ -1,6 +1,4 @@
 // import Slider from "../Slider/Slider";
-// import Login from "../Login/Login";
-// import Search from "../Search/Search";
 import Navigation from "../navigation";
 
 import HeaderFunc from "./header-func";

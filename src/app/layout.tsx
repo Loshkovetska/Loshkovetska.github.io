@@ -1,24 +1,22 @@
 import { Metadata } from "next";
+import { PropsWithChildren } from "react";
+
+import Providers from "@/providers";
+
 import "./globals.css";
-import "tailwindcss/tailwind.css";
 
 export const metadata: Metadata = {
   title: "Cinema Park",
   description: "Watch movies with us",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout(props: PropsWithChildren) {
   return (
-    <html
-      lang="en"
-      className="flex min-h-full flex-col"
-    >
+    <html lang="en">
       <head></head>
-      <body className="flex grow flex-col antialiased">{children}</body>
+      <body className="antialiased">
+        <Providers>{props.children}</Providers>
+      </body>
     </html>
   );
 }

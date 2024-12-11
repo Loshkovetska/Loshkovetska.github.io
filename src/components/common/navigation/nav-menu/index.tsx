@@ -2,6 +2,8 @@ import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
+import { cn } from "@/lib/utils";
+
 import { NAV_MENU_LIST } from "../constants";
 
 export default function NavigationMenu() {
@@ -17,14 +19,16 @@ export default function NavigationMenu() {
           {item.subList ? (
             <>
               <span
-                className="flex items-center justify-between gap-3 hover:text-white"
+                className="flex cursor-pointer items-center justify-between gap-3 text-white"
                 onClick={() => setOpenList((prev) => !prev)}
               >
                 {item.title}{" "}
-                <ChevronDown className={isOpenSubList ? "-rotate-180" : ""} />
+                <ChevronDown
+                  className={cn("", isOpenSubList ? "-rotate-180" : "")}
+                />
               </span>
               {isOpenSubList && (
-                <ul className="flex list-none flex-col gap-6">
+                <ul className="mt-5 flex list-none flex-col gap-6">
                   {item.subList.map((subItem) => (
                     <li key={subItem.title}>
                       <Link
@@ -41,7 +45,7 @@ export default function NavigationMenu() {
           ) : (
             <Link
               href={item.to}
-              className="hover:text-white/90"
+              className="text-white hover:text-white/90"
             >
               {item.title}
             </Link>

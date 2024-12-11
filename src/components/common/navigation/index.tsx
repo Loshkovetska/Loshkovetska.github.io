@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-import { cn } from "@/utils";
+import { cn } from "@/lib/utils";
 
 import SocialNetworks from "../social-networks";
 
@@ -15,7 +15,7 @@ export default function Navigation() {
 
   return (
     <nav
-      className={cn("w-[372px] h-[900px] top-0 left-0 absolute max-sm:w-full", {
+      className={cn("w-[372px] h-[900px] top-0 left-0 absolute lg:w-full", {
         "bg-dark backdrop-blur-md z-[2]": isOpen,
       })}
     >
@@ -24,7 +24,7 @@ export default function Navigation() {
           className="relative z-[2] mr-[45px] flex size-8 items-center justify-center"
           onClick={() => setOpen((prev) => !prev)}
         >
-          <Menu />
+          <Menu className="stroke-white" />
         </button>
         <Link
           href="/"

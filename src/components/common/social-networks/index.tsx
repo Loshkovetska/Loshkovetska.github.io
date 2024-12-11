@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { cn } from "@/utils";
+import { cn } from "@/lib/utils";
 
 import { SOCIAL_LINKS } from "./constants";
 
@@ -11,10 +11,9 @@ export default function SocialNetworks({ className }: { className?: string }) {
         <Link
           href={item.href}
           key={item.id}
+          className="group flex items-center justify-center transition-all"
         >
-          <span className="group flex cursor-pointer items-center justify-center transition-all [&>svg>path]:fill-white/80">
-            {item.icon}
-          </span>
+          {item.icon}
         </Link>
       ))}
     </div>
