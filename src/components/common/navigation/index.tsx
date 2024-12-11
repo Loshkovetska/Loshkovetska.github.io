@@ -20,7 +20,7 @@ export default function Navigation() {
         className="mt-4 w-screen border-none bg-dark/30 pt-6 backdrop-blur-3xl lg:mt-6 lg:w-[232px]"
       >
         <NavigationMenu />
-        <SocialNetworks className="justify-center px-8" />
+        <SocialNetworks className="px-8" />
       </DropdownMenu>
       <Link
         href="/"

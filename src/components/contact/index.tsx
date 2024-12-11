@@ -10,7 +10,7 @@ export default function Contact() {
         <div className="my-10 text-center text-[20px] font-bold text-white">
           Keep In Touch
         </div>
-        <div className="flex w-full flex-col gap-16 max-lg:flex-col-reverse">
+        <div className="flex w-full flex-col gap-16">
           <div className="grid  grid-cols-3 justify-center gap-[128px] max-lg:gap-5 max-sm:grid-cols-1">
             <div className="flex flex-col items-center gap-2">
               <div className="mb-4 flex size-10 items-center justify-center rounded-full bg-white">

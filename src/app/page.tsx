@@ -8,14 +8,10 @@ export default function Page() {
     <>
       <Header />
       <UpcomingMovies />
+      {/* <MoviesDay /> */}
+      <UpcomingMovies current />
       <Contact />
       <Footer />
-      {/* <main className="main">
-        <MoviesDay />
-        <Slider isPresale={true} />
-        <Contact />
-      </main>
-      <Footer /> */}
     </>
   );
 }

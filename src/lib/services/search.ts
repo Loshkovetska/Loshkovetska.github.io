@@ -18,9 +18,12 @@ export const moviesApi = createApi({
     searchMovies: builder.query<SearchResultType, string>({
       query: (query: string) => `search/movie?${query}&sort_by=popularity.desc`,
     }),
-    upcomingMovies: builder.query<SearchResultType, undefined>({
-      query: () => {
-        return `discover/movie?include_video=true&language=en-US&page=1&release_date.gte=${dayjs().format("YYYY-MM-DD")}&sort_by=popularity.desc`;
+    upcomingMovies: builder.query<SearchResultType, boolean>({
+      query: (isNext: boolean = true) => {
+        const dateQuery = isNext
+          ? `release_date.gte=${dayjs().format("YYYY-MM-DD")}`
+          : `release_date.lte=${dayjs().format("YYYY-MM-DD")}&release_date.gte=${dayjs().format("YYYY-MM-DD")}`;
+        return `discover/movie?include_video=true&language=en-US&page=1&${dateQuery}&sort_by=popularity.desc`;
       },
     }),
     movieGenres: builder.query<GenreResultType, undefined>({

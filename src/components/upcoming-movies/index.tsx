@@ -10,8 +10,12 @@ import {
 import BannerItem from "@/components/upcoming-movies/banner-item";
 import { useMovieGenresQuery, useUpcomingMoviesQuery } from "@/lib/services";
 
-export default function UpcomingMovies() {
-  const { data } = useUpcomingMoviesQuery(undefined);
+export default function UpcomingMovies({
+  current = false,
+}: {
+  current?: boolean;
+}) {
+  const { data } = useUpcomingMoviesQuery(!current);
   const { data: genres } = useMovieGenresQuery(undefined);
 
   return (
