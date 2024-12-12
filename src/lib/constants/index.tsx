@@ -4,6 +4,7 @@ enum VALIDATE_TAGS {
   "FutureReleasedMovies" = "futureReleasedMovies",
   "MovieGenres" = "movieGenres",
   "MoviesPerPeriod" = "moviesPerPeriod",
+  "Reviews" = "reviews",
 }
 
 export { VALIDATE_TAGS };

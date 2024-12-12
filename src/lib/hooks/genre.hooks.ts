@@ -2,7 +2,7 @@
 import { useCallback, useMemo } from "react";
 
 import { VALIDATE_TAGS } from "@/lib/constants";
-import { useAppSelector } from "@/lib/hooks/store.hooks";
+import { useAppSelector } from "@/lib/hooks";
 import { GenreResultType } from "@/types";
 
 export const useGenres = (listView: boolean = true) => {
@@ -17,9 +17,10 @@ export const useGenres = (listView: boolean = true) => {
 
   const getGenresList = useCallback(
     (ids: number[]) => {
-      const genresList = genres?.genres
-        ?.filter((genre) => ids.includes(genre.id))
-        ?.map((genre) => genre.name);
+      const genresList =
+        genres?.genres
+          ?.filter((genre) => ids.includes(genre.id))
+          ?.map((genre) => genre.name) || [];
       if (listView) {
         return genresList;
       }

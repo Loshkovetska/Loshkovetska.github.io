@@ -2,7 +2,8 @@ import dayjs from "dayjs";
 import Link from "next/link";
 import { FaEllipsisH } from "react-icons/fa";
 
-import { useGenres } from "@/lib/hooks/genre.hooks";
+import GenresList from "@/components/common/genres-list";
+import { useGenres } from "@/lib/hooks";
 import { SearchItemResultType } from "@/types";
 
 export default function BannerItem(item: SearchItemResultType) {
@@ -22,17 +23,7 @@ export default function BannerItem(item: SearchItemResultType) {
         <div className="text-3xl font-bold uppercase text-white">
           {item.original_title}
         </div>
-        <div className="flex max-w-screen-sm flex-wrap items-center gap-2">
-          <span className="text-[20px] font-light text-white/90">Genre: </span>
-          {(getGenresList(item.genre_ids || []) as [])?.map((genre) => (
-            <span
-              key={genre}
-              className="flex rounded-full border border-white/20 px-5 py-1 text-[12px] font-medium text-white"
-            >
-              {genre}
-            </span>
-          ))}
-        </div>
+        <GenresList genres={getGenresList(item.genre_ids || []) as []} />
         <div className="self-start rounded-[50px] bg-error/80 px-4 py-2 text-center text-sm font-medium text-white/80 md:text-md">
           Release Date: {dayjs(item.release_date).format("DD MMM YYYY")}
         </div>

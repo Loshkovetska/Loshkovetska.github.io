@@ -2,6 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 import { VALIDATE_TAGS } from "@/lib/constants";
 import { GenreResultType, SearchResultType } from "@/types";
+import { ReviewsResponseType } from "@/types/review";
 
 export const moviesApi = createApi({
   reducerPath: "moviesApi",
@@ -11,6 +12,7 @@ export const moviesApi = createApi({
     VALIDATE_TAGS.FutureReleasedMovies,
     VALIDATE_TAGS.MovieGenres,
     VALIDATE_TAGS.MoviesPerPeriod,
+    VALIDATE_TAGS.Reviews,
   ],
   baseQuery: fetchBaseQuery({
     baseUrl: "https://api.themoviedb.org/3/",
@@ -49,6 +51,13 @@ export const moviesApi = createApi({
         `discover/movie?include_adult=false&include_video=false&language=en-US&page=1&primary_release_date.gte=${args.startDate}&primary_release_date.lte=${args.endDate}&sort_by=popularity.desc`,
       providesTags: [VALIDATE_TAGS.MoviesPerPeriod],
     }),
+    movieReviews: builder.query<
+      ReviewsResponseType,
+      { id: number; page: number }
+    >({
+      query: (args) => `movie/${args.id}/reviews?page=${args.page}`,
+      providesTags: [VALIDATE_TAGS.Reviews],
+    }),
   }),
 });
 
@@ -57,4 +66,5 @@ export const {
   useReleasedMoviesQuery,
   useMovieGenresQuery,
   useMoviesPerPeriodQuery,
+  useMovieReviewsQuery,
 } = moviesApi;

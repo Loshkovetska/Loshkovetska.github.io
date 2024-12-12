@@ -1,7 +1,7 @@
 import dayjs from "dayjs";
 
 import MovieItem from "@/components/homepage/movies-day/movies-list/movie-item";
-import { useGenres } from "@/lib/hooks/genre.hooks";
+import { useGenres } from "@/lib/hooks";
 import { useMoviesPerPeriodQuery } from "@/lib/services";
 
 type MoviesListPropType = {

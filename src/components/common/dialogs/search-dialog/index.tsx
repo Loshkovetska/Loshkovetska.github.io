@@ -1,12 +1,14 @@
-import { useCallback, useMemo, useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 
-import SearchItem from "@/components/common/dialogs/search-dialog/search-item";
-import { Button } from "@/components/ui/button";
+import PaginationBlock from "@/components/common/pagination-block";
+import ShortMovieItem from "@/components/common/short-movie-item";
 import Dialog from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ScrollArea } from "@/components/ui/scrollarea";
+import { VALIDATE_TAGS } from "@/lib/constants";
+import { usePagination } from "@/lib/hooks";
 import { useSearchMoviesQuery } from "@/lib/services";
 import { cn } from "@/lib/utils";
 
@@ -15,28 +17,22 @@ const PER_PAGE = 20;
 export default function SearchDialog() {
   const initialRef = useRef(false);
   const [inputValue, setInputValue] = useState("");
-  const [page, setPage] = useState(1);
+
+  const { page, canFetchNext, canFetchPrevious, handlePageChange, setPage } =
+    usePagination(VALIDATE_TAGS.SearchMovie);
+
   const { data } = useSearchMoviesQuery(`query=${inputValue}&page=${page}`, {
     skip: inputValue.length < 3,
   });
 
-  const { canFetchNext, canFetchPrevious } = useMemo(() => {
-    if (!data) return { canFetchNext: false, canFetchPrevious: false };
-    return {
-      canFetchPrevious: page > 1,
-      canFetchNext: page < data?.total_pages,
-    };
-  }, [data, page]);
-
-  const handlePageChange = useCallback((type: "next" | "prev") => {
-    setPage((prev) => prev + (type === "next" ? 1 : -1));
-  }, []);
-
-  const handleValueChange = useCallback((text: string) => {
-    setInputValue(text);
-    setPage(1);
-    initialRef.current = true;
-  }, []);
+  const handleValueChange = useCallback(
+    (text: string) => {
+      setInputValue(text);
+      setPage(1);
+      initialRef.current = true;
+    },
+    [setPage]
+  );
 
   return (
     <Dialog
@@ -71,7 +67,7 @@ export default function SearchDialog() {
             <ScrollArea className="flex h-[68vh] w-[88%]">
               <div className="grid w-full grid-cols-5 gap-3 max-lg:grid-cols-3 max-md:grid-cols-2">
                 {data?.results?.map((searchItem) => (
-                  <SearchItem
+                  <ShortMovieItem
                     key={searchItem.id}
                     {...searchItem}
                   />
@@ -79,22 +75,11 @@ export default function SearchDialog() {
               </div>
             </ScrollArea>
             {Number(data?.total_results || 0) > PER_PAGE && (
-              <div className="mx-auto flex items-center gap-4">
-                <Button
-                  onClick={() => handlePageChange("prev")}
-                  className="max-w-[200px]"
-                  disabled={!canFetchPrevious}
-                >
-                  See previous
-                </Button>
-                <Button
-                  onClick={() => handlePageChange("next")}
-                  className="max-w-[200px]"
-                  disabled={!canFetchNext}
-                >
-                  See next
-                </Button>
-              </div>
+              <PaginationBlock
+                canFetchNext={canFetchNext}
+                canFetchPrevious={canFetchPrevious}
+                handlePageChange={handlePageChange}
+              />
             )}
           </div>
         )}

@@ -1,8 +1,6 @@
 import Link from "next/link";
-import { useCallback } from "react";
-import { FaStar } from "react-icons/fa";
 
-import { cn } from "@/lib/utils";
+import RateBlock from "@/components/common/rate-block";
 import { SearchItemResultType } from "@/types";
 
 export default function MovieItem({
@@ -12,23 +10,6 @@ export default function MovieItem({
   poster_path,
   id,
 }: SearchItemResultType & { genre: string }) {
-  const getRate = useCallback(() => {
-    const convertTo5 = Math.floor(vote_average / 2);
-    const stars = Array(5)
-      .fill("star")
-      .map((_, ind) => (
-        <FaStar
-          key={ind}
-          className={cn(
-            "size-3",
-            ind + 1 > convertTo5 ? "fill:white" : "fill:white/50"
-          )}
-        />
-      ));
-
-    return stars;
-  }, [vote_average]);
-
   return (
     <Link
       href={`/details/${id}`}
@@ -41,7 +22,7 @@ export default function MovieItem({
       <div className="absolute bottom-0 left-0 flex w-full flex-col gap-2 px-5 pb-5">
         <h3 className="text-[20px] font-bold text-white">{title}</h3>
         <span className="font-regular text-sm text-white/80">{genre}</span>
-        <div className="flex items-center">{getRate()}</div>
+        <RateBlock vote_average={vote_average} />
       </div>
     </Link>
   );
