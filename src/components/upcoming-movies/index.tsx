@@ -8,15 +8,15 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import BannerItem from "@/components/upcoming-movies/banner-item";
-import { useMovieGenresQuery, useUpcomingMoviesQuery } from "@/lib/services";
+import { useMovieGenresQuery, useReleasedMoviesQuery } from "@/lib/services";
 
 export default function UpcomingMovies({
   current = false,
 }: {
   current?: boolean;
 }) {
-  const { data } = useUpcomingMoviesQuery(!current);
-  const { data: genres } = useMovieGenresQuery(undefined);
+  const { data } = useReleasedMoviesQuery(!current);
+  useMovieGenresQuery(undefined);
 
   return (
     <Carousel
@@ -26,15 +26,12 @@ export default function UpcomingMovies({
       }}
     >
       <CarouselContent className="ml-0 size-full">
-        {data?.results.slice(0).map((item) => (
+        {data?.results.map((item) => (
           <CarouselItem
             key={item.id}
             className="size-full pl-0"
           >
-            <BannerItem
-              genres={genres}
-              {...item}
-            />
+            <BannerItem {...item} />
           </CarouselItem>
         ))}
       </CarouselContent>

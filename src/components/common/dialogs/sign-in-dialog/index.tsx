@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { FaUser } from "react-icons/fa";
 import { z } from "zod";
 
-import SocialConnect from "@/components/sign-in/social-connect";
+import SocialConnect from "@/components/social-connect";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import Dialog from "@/components/ui/dialog";

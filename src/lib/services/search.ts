@@ -1,13 +1,20 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import dayjs from "dayjs";
 
+import { VALIDATE_TAGS } from "@/lib/constants";
 import { GenreResultType, SearchResultType } from "@/types";
 
 export const moviesApi = createApi({
   reducerPath: "moviesApi",
+  tagTypes: [
+    VALIDATE_TAGS.SearchMovie,
+    VALIDATE_TAGS.NowRealesedMovies,
+    VALIDATE_TAGS.FutureReleasedMovies,
+    VALIDATE_TAGS.MovieGenres,
+    VALIDATE_TAGS.MoviesPerPeriod,
+  ],
   baseQuery: fetchBaseQuery({
     baseUrl: "https://api.themoviedb.org/3/",
-    prepareHeaders(headers, api) {
+    prepareHeaders(headers) {
       headers.append(
         "Authorization",
         `Bearer ${process.env.NEXT_PUBLIC_TMBD_TOKEN}`
@@ -16,24 +23,38 @@ export const moviesApi = createApi({
   }),
   endpoints: (builder) => ({
     searchMovies: builder.query<SearchResultType, string>({
-      query: (query: string) => `search/movie?${query}&sort_by=popularity.desc`,
+      query: (query: string) =>
+        `search/movie?${query}&include_adult=true&sort_by=popularity.desc`,
+      providesTags: [VALIDATE_TAGS.SearchMovie],
     }),
-    upcomingMovies: builder.query<SearchResultType, boolean>({
+    releasedMovies: builder.query<SearchResultType, boolean>({
       query: (isNext: boolean = true) => {
-        const dateQuery = isNext
-          ? `release_date.gte=${dayjs().format("YYYY-MM-DD")}`
-          : `release_date.lte=${dayjs().format("YYYY-MM-DD")}&release_date.gte=${dayjs().format("YYYY-MM-DD")}`;
-        return `discover/movie?include_video=true&language=en-US&page=1&${dateQuery}&sort_by=popularity.desc`;
+        return `movie/${isNext ? "upcoming" : "now_playing"}?include_adult=true&language=en-US&page=1`;
       },
+      providesTags: (res, e, arg) => [
+        arg
+          ? VALIDATE_TAGS.FutureReleasedMovies
+          : VALIDATE_TAGS.NowRealesedMovies,
+      ],
     }),
     movieGenres: builder.query<GenreResultType, undefined>({
       query: () => `genre/movie/list?language=en`,
+      providesTags: [VALIDATE_TAGS.MovieGenres],
+    }),
+    moviesPerPeriod: builder.query<
+      SearchResultType,
+      { startDate: string; endDate: string }
+    >({
+      query: (args) =>
+        `discover/movie?include_adult=false&include_video=false&language=en-US&page=1&primary_release_date.gte=${args.startDate}&primary_release_date.lte=${args.endDate}&sort_by=popularity.desc`,
+      providesTags: [VALIDATE_TAGS.MoviesPerPeriod],
     }),
   }),
 });
 
 export const {
   useSearchMoviesQuery,
-  useUpcomingMoviesQuery,
+  useReleasedMoviesQuery,
   useMovieGenresQuery,
+  useMoviesPerPeriodQuery,
 } = moviesApi;

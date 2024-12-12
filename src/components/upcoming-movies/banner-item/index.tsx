@@ -1,27 +1,13 @@
 import dayjs from "dayjs";
 import Link from "next/link";
-import { useCallback } from "react";
 import { FaEllipsisH } from "react-icons/fa";
 
-import { GenreResultType, SearchItemResultType } from "@/types";
+import { useGenres } from "@/lib/hooks/genre.hooks";
+import { SearchItemResultType } from "@/types";
 
-type BannerItemPropType = {
-  genres?: GenreResultType;
-} & SearchItemResultType;
+export default function BannerItem(item: SearchItemResultType) {
+  const { getGenresList } = useGenres(true);
 
-export default function BannerItem(props: BannerItemPropType) {
-  const { genres, ...item } = props;
-
-  const getGenresList = useCallback(
-    (ids: number[]) => {
-      return (
-        genres?.genres
-          ?.filter((genre) => ids.includes(genre.id))
-          ?.map((genre) => genre.name) || []
-      );
-    },
-    [genres]
-  );
   return (
     <div
       className="relative flex size-full items-center bg-black/80 bg-cover bg-top bg-blend-multiply"
@@ -38,7 +24,7 @@ export default function BannerItem(props: BannerItemPropType) {
         </div>
         <div className="flex max-w-screen-sm flex-wrap items-center gap-2">
           <span className="text-[20px] font-light text-white/90">Genre: </span>
-          {getGenresList(item.genre_ids)?.map((genre) => (
+          {(getGenresList(item.genre_ids || []) as [])?.map((genre) => (
             <span
               key={genre}
               className="flex rounded-full border border-white/20 px-5 py-1 text-[12px] font-medium text-white"
