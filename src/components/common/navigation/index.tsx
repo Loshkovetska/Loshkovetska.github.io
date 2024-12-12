@@ -31,6 +31,8 @@ export default function Navigation() {
           fill
           alt="logo"
           className="object-contain object-center"
+          sizes="124px,189px"
+          priority
         />
       </Link>
     </nav>

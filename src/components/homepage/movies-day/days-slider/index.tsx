@@ -1,7 +1,7 @@
 import dayjs, { Dayjs } from "dayjs";
 import { useCallback, useMemo } from "react";
 
-import DayItem from "@/components/movies-day/days-slider/day-item";
+import DayItem from "@/components/homepage/movies-day/days-slider/day-item";
 import {
   Carousel,
   CarouselContent,

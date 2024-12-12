@@ -2,8 +2,8 @@
 import dayjs from "dayjs";
 import { useMemo, useState } from "react";
 
-import DaysSlider from "@/components/movies-day/days-slider";
-import MoviesList from "@/components/movies-day/movies-list";
+import DaysSlider from "@/components/homepage/movies-day/days-slider";
+import MoviesList from "@/components/homepage/movies-day/movies-list";
 
 export default function MoviesDay() {
   const [currentDate, setDate] = useState(dayjs().toDate());

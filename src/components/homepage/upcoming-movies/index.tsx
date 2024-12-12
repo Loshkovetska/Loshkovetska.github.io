@@ -1,5 +1,6 @@
 "use client";
 
+import BannerItem from "@/components/homepage/upcoming-movies/banner-item";
 import {
   Carousel,
   CarouselContent,
@@ -7,7 +8,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import BannerItem from "@/components/upcoming-movies/banner-item";
 import { useMovieGenresQuery, useReleasedMoviesQuery } from "@/lib/services";
 
 export default function UpcomingMovies({
@@ -20,7 +20,7 @@ export default function UpcomingMovies({
 
   return (
     <Carousel
-      className=" h-screen w-screen md:w-[calc(100vw-16px)] [&>*:first-child]:absolute [&>*:first-child]:inset-0 [&>*:first-child]:size-full"
+      className="h-screen w-screen md:w-[calc(100vw-16px)] [&>*:first-child]:absolute [&>*:first-child]:inset-0 [&>*:first-child]:size-full"
       opts={{
         slidesToScroll: 1,
       }}

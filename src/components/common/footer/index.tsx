@@ -18,6 +18,7 @@ export default function Footer() {
               src={GooglePlay}
               alt="google-play"
               fill
+              sizes="148px"
             />
           </div>
           <div className="relative h-[48px] w-[148px]">
@@ -25,6 +26,7 @@ export default function Footer() {
               src={ApplePay}
               alt="app-store"
               fill
+              sizes="148px"
             />
           </div>
         </div>

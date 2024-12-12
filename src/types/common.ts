@@ -2,4 +2,9 @@ type CustomIconType = {
   className?: string;
 };
 
-export type { CustomIconType };
+type PageProps = {
+  params?: Promise<any>;
+  searchParams?: Promise<any>;
+};
+
+export type { CustomIconType, PageProps };

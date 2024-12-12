@@ -32,7 +32,7 @@ export default function MovieItem({
   return (
     <Link
       href={`/details/${id}`}
-      className="relative flex h-[345px] w-full flex-col"
+      className="relative flex h-[67vw] w-full flex-col md:max-lg:h-[45vw] lg:h-[345px]"
       style={{
         background: `linear-gradient(180deg, rgba(126, 125, 125, 0.3) 0%, rgba(112, 111, 111, 0.36875) 11.46%, rgba(0, 0, 0, 0.9) 100%),url(${process.env.NEXT_PUBLIC_TMBD_IMAGE_ROOT + poster_path})`,
         backgroundSize: "cover",
