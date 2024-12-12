@@ -1,5 +1,5 @@
-import { Search } from "lucide-react";
 import { useCallback, useMemo, useRef, useState } from "react";
+import { FaSearch } from "react-icons/fa";
 
 import SearchItem from "@/components/common/dialogs/search-dialog/search-item";
 import { Button } from "@/components/ui/button";
@@ -44,7 +44,7 @@ export default function SearchDialog() {
       className="h-screen w-full max-w-full !rounded-none bg-dark"
       trigger={
         <button className="group flex size-8 cursor-pointer items-center justify-center">
-          <Search className="stroke-white/90 group-hover:stroke-white" />
+          <FaSearch className="fill-white/90 stroke-white/90 group-hover:fill-white group-hover:stroke-white" />
         </button>
       }
     >

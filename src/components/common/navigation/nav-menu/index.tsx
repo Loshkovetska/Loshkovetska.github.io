@@ -1,7 +1,7 @@
 "use client";
-import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+import { FaChevronDown } from "react-icons/fa";
 
 import { DropdownMenuItem } from "@/components/ui/dropdown";
 import { cn } from "@/lib/utils";
@@ -29,7 +29,7 @@ export default function NavigationMenu() {
                 }}
               >
                 {item.title}{" "}
-                <ChevronDown
+                <FaChevronDown
                   className={cn("", isOpenSubList ? "-rotate-180" : "")}
                 />
               </span>

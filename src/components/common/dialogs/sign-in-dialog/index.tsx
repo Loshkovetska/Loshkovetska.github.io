@@ -1,7 +1,8 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { User } from "lucide-react";
+import Link from "next/link";
 import { useCallback } from "react";
 import { useForm } from "react-hook-form";
+import { FaUser } from "react-icons/fa";
 import { z } from "zod";
 
 import SocialConnect from "@/components/sign-in/social-connect";
@@ -40,12 +41,12 @@ export default function SignInDialog() {
       titleClassName="text-lg text-white"
       trigger={
         <button className="group flex size-8 cursor-pointer items-center justify-center">
-          <User className="stroke-white/90 group-hover:stroke-white" />
+          <FaUser className="fill-white/90 stroke-white/90 group-hover:fill-white group-hover:stroke-white" />
         </button>
       }
-      className="bg-dark"
+      className="border-none bg-dark max-md:w-[90%] lg:max-w-[600px]"
     >
-      <div className="my-10 flex w-full flex-col gap-8">
+      <div className="flex w-full flex-col gap-8 lg:my-10">
         <SocialConnect />
         <Form {...form}>
           <div className="flex w-full flex-col gap-4">
@@ -79,6 +80,17 @@ export default function SignInDialog() {
         >
           Submit
         </Button>
+        <div className="flex items-center gap-3">
+          <span className="text-sm font-light text-white">
+            Don&apos;t have an account?
+          </span>
+          <Link
+            href="/sign-up"
+            className="text-md text-white/80 hover:underline"
+          >
+            Sign Up
+          </Link>
+        </div>
       </div>
     </Dialog>
   );

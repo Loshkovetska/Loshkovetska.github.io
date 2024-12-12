@@ -20,7 +20,7 @@ export default function UpcomingMovies({
 
   return (
     <Carousel
-      className=" h-screen w-screen lg:w-[calc(100vw-16px)] [&>*:first-child]:absolute [&>*:first-child]:inset-0 [&>*:first-child]:size-full"
+      className=" h-screen w-screen md:w-[calc(100vw-16px)] [&>*:first-child]:absolute [&>*:first-child]:inset-0 [&>*:first-child]:size-full"
       opts={{
         slidesToScroll: 1,
       }}

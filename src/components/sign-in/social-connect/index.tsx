@@ -1,4 +1,4 @@
-import { Apple, Facebook } from "lucide-react";
+import { FaApple, FaFacebook, FaGooglePlus } from "react-icons/fa";
 
 import { Button } from "@/components/ui/button";
 
@@ -9,12 +9,14 @@ export default function SocialConnect() {
         Sign in with
       </span>
       <div className="flex justify-center gap-10">
-        <Button variant="transparent">{/* <Gmail /> */}</Button>
         <Button variant="transparent">
-          <Facebook className="size-6 fill-white" />
+          <FaGooglePlus className="size-6 fill-white" />
         </Button>
         <Button variant="transparent">
-          <Apple className="size-6 stroke-white" />
+          <FaFacebook className="size-6 fill-white" />
+        </Button>
+        <Button variant="transparent">
+          <FaApple className="size-6 fill-white" />
         </Button>
       </div>
     </div>

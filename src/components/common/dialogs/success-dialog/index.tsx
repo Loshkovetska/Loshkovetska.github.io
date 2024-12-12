@@ -1,4 +1,4 @@
-import { MessageSquareHeart } from "lucide-react";
+import { FaRegPaperPlane } from "react-icons/fa";
 
 import Dialog from "@/components/ui/dialog";
 
@@ -15,7 +15,7 @@ export default function SuccessDialog(props: SuccessDialogPropType) {
       {...props}
       icon={
         <div className="flex size-16 items-center justify-center self-center rounded-full bg-dark">
-          <MessageSquareHeart className="size-8 text-white" />
+          <FaRegPaperPlane className="size-8 text-white" />
         </div>
       }
       titleClassName="text-xl text-center"

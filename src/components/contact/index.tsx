@@ -1,5 +1,5 @@
-import { Mail, MapPin, Phone } from "lucide-react";
 import Link from "next/link";
+import { FaMailBulk, FaMapPin, FaPhone } from "react-icons/fa";
 
 import ContactForm from "@/components/forms/contact-form";
 
@@ -14,7 +14,7 @@ export default function Contact() {
           <div className="grid  grid-cols-3 justify-center gap-[128px] max-lg:gap-5 max-sm:grid-cols-1">
             <div className="flex flex-col items-center gap-2">
               <div className="mb-4 flex size-10 items-center justify-center rounded-full bg-white">
-                <Phone className="text-dark" />
+                <FaPhone className="text-dark" />
               </div>
               <Link
                 className="text-white/80"
@@ -31,7 +31,7 @@ export default function Contact() {
             </div>
             <div className="flex flex-col items-center gap-2">
               <div className="mb-4 flex size-10 items-center justify-center rounded-full bg-white">
-                <Mail className="text-dark" />
+                <FaMailBulk className="text-dark" />
               </div>
               <Link
                 className="text-white/80"
@@ -42,7 +42,7 @@ export default function Contact() {
             </div>
             <div className="flex flex-col items-center gap-2">
               <div className="mb-4 flex size-10 items-center justify-center rounded-full bg-white">
-                <MapPin />
+                <FaMapPin />
               </div>
               <Link
                 href="#"

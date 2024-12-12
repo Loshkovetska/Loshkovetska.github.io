@@ -1,7 +1,7 @@
 import dayjs from "dayjs";
-import { MoreHorizontal } from "lucide-react";
 import Link from "next/link";
 import { useCallback } from "react";
+import { FaEllipsisH } from "react-icons/fa";
 
 import { GenreResultType, SearchItemResultType } from "@/types";
 
@@ -29,7 +29,7 @@ export default function BannerItem(props: BannerItemPropType) {
         backgroundImage: `url('${process.env.NEXT_PUBLIC_TMBD_IMAGE_ROOT + item.poster_path}')`,
       }}
     >
-      <div className="flex max-w-[375px] flex-col gap-6 pl-8 md:w-[668px]">
+      <div className="flex flex-col gap-6 pl-8 max-md:max-w-[375px] md:w-[668px]">
         <span className="self-start rounded-[50px] border border-white/80 px-4 py-2 text-center text-sm font-medium text-white">
           {item.adult ? "16+" : "12+"}
         </span>
@@ -55,7 +55,7 @@ export default function BannerItem(props: BannerItemPropType) {
             href={`/details/${item.id}`}
             className="group flex items-center gap-2 font-light text-white hover:underline"
           >
-            <MoreHorizontal className="fill-white/80 group-hover:fill-white" />
+            <FaEllipsisH className="fill-white/80 group-hover:fill-white" />
             Read more
           </Link>
         </div>

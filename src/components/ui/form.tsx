@@ -2,7 +2,6 @@
 
 import * as LabelPrimitive from "@radix-ui/react-label";
 import { Slot } from "@radix-ui/react-slot";
-import { Eye, EyeOff } from "lucide-react";
 import * as React from "react";
 import {
   Controller,
@@ -14,6 +13,7 @@ import {
   UseFormReturn,
   useFormContext,
 } from "react-hook-form";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -235,9 +235,9 @@ const FormElement = ({
                 iconRight={
                   showPassIcon ? (
                     !dynamicType ? (
-                      <EyeOff onClick={() => setDynamicType(true)} />
+                      <FaEyeSlash onClick={() => setDynamicType(true)} />
                     ) : (
-                      <Eye onClick={() => setDynamicType(false)} />
+                      <FaEye onClick={() => setDynamicType(false)} />
                     )
                   ) : undefined
                 }

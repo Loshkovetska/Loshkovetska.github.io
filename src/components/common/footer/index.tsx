@@ -28,7 +28,7 @@ export default function Footer() {
             />
           </div>
         </div>
-        <ul className="mb-[28px] mt-[48px] flex list-none flex-wrap justify-center gap-12">
+        <ul className="mb-[28px] mt-[48px] flex list-none flex-wrap justify-center gap-4 lg:gap-12">
           {FOOTER_MENU.map((item) => (
             <li
               className="group mb-5"
