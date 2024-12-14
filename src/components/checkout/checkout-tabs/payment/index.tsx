@@ -41,9 +41,9 @@ export default function Payment({
     (values: z.infer<typeof paymentScheme>) => {
       console.log(values);
       mutate({
-        ...(order as any),
+        ...order,
         email: values.email,
-        tel: values.tel,
+        tel: values.tel || "",
         name: values.name,
       });
     },

@@ -8,9 +8,11 @@ import SuccessDialog from "@/components/common/dialogs/success-dialog";
 import { Button } from "@/components/ui/button";
 import { Form, FormElement } from "@/components/ui/form";
 import { contactScheme } from "@/lib/scheme";
+import { useContactUsMutation } from "@/lib/services";
 
 export default function ContactForm() {
   const [isOpen, setOpen] = useState(false);
+  const [mutate, { isLoading }] = useContactUsMutation();
   const form = useForm({
     defaultValues: {
       name: "",
@@ -23,11 +25,12 @@ export default function ContactForm() {
 
   const handleSubmit = useCallback(
     (values: z.infer<typeof contactScheme>) => {
-      //   todo: add logic
-      setOpen(true);
-      form.reset();
+      mutate(values).then((res) => {
+        setOpen(true);
+        form.reset();
+      });
     },
-    [form]
+    [form, mutate]
   );
 
   return (
@@ -58,6 +61,7 @@ export default function ContactForm() {
       <Button
         className="mt-6 w-full"
         disabled={!form.formState.isValid}
+        loading={isLoading}
         onClick={form.handleSubmit(handleSubmit)}
       >
         Submit

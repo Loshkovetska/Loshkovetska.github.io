@@ -1,4 +1,4 @@
-enum VALIDATE_TAGS {
+enum QUERY_TAGS {
   "SearchMovie" = "searchMovie",
   "NowRealesedMovies" = "nowRealesedMovies",
   "FutureReleasedMovies" = "futureReleasedMovies",
@@ -8,4 +8,4 @@ enum VALIDATE_TAGS {
   "Products" = "products",
 }
 
-export { VALIDATE_TAGS };
+export { QUERY_TAGS };

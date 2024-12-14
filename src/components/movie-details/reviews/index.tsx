@@ -3,7 +3,7 @@
 import PaginationBlock from "@/components/common/pagination-block";
 import DetailsBlock from "@/components/movie-details/details-block";
 import ReviewItem from "@/components/movie-details/reviews/review-item";
-import { VALIDATE_TAGS } from "@/lib/constants";
+import { QUERY_TAGS } from "@/lib/constants";
 import { usePagination } from "@/lib/hooks";
 import { useMovieReviewsQuery } from "@/lib/services";
 
@@ -11,7 +11,7 @@ const PER_PAGE = 20;
 
 export default function Reviews({ id }: { id: number }) {
   const { page, canFetchNext, canFetchPrevious, handlePageChange } =
-    usePagination(VALIDATE_TAGS.Reviews);
+    usePagination(QUERY_TAGS.Reviews);
 
   const { data } = useMovieReviewsQuery({ id, page });
 

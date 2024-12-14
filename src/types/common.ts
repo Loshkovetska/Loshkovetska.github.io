@@ -7,4 +7,10 @@ type PageProps = {
   searchParams?: Promise<any>;
 };
 
-export type { CustomIconType, PageProps };
+type ContactUsRequestType = {
+  email: string;
+  name: string;
+  comment: string;
+};
+
+export type { ContactUsRequestType, CustomIconType, PageProps };

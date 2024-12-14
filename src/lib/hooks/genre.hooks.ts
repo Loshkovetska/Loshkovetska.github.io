@@ -1,14 +1,14 @@
 "use client";
 import { useCallback } from "react";
 
-import { VALIDATE_TAGS } from "@/lib/constants";
+import { QUERY_TAGS } from "@/lib/constants";
 import { useData } from "@/lib/hooks";
 import { GenreResultType } from "@/types";
 
 export const useGenres = (listView: boolean = true) => {
   const { data: genres }: { data: GenreResultType } = useData({
     apiName: "moviesApi",
-    queryKey: VALIDATE_TAGS.MovieGenres,
+    queryKey: QUERY_TAGS.MovieGenres,
   });
 
   const getGenresList = useCallback(

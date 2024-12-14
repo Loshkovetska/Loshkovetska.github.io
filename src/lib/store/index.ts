@@ -1,17 +1,19 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import { checkoutApi, moviesApi } from "@/lib/services";
+import { checkoutApi, generalApi, moviesApi } from "@/lib/services";
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
       [moviesApi.reducerPath]: moviesApi.reducer,
       [checkoutApi.reducerPath]: checkoutApi.reducer,
+      [generalApi.reducerPath]: generalApi.reducer,
     },
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware()
         .concat(moviesApi.middleware)
-        .concat(checkoutApi.middleware),
+        .concat(checkoutApi.middleware)
+        .concat(generalApi.middleware),
   });
 };
 

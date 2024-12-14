@@ -20,6 +20,7 @@ export default function SuccessDialog(props: SuccessDialogPropType) {
       }
       titleClassName="text-xl text-center"
       descriptionClassName="text-md text-center"
+      className="max-sm:w-[95%]"
     />
   );
 }

@@ -2,7 +2,7 @@ import { useCallback, useMemo, useState } from "react";
 
 import ProductItem from "@/components/checkout/checkout-tabs/products/product-item";
 import ProductsFilter from "@/components/checkout/checkout-tabs/products/products-filter";
-import { VALIDATE_TAGS } from "@/lib/constants";
+import { QUERY_TAGS } from "@/lib/constants";
 import { useData } from "@/lib/hooks";
 import { OrderType, ProductType } from "@/types";
 
@@ -19,7 +19,7 @@ export default function Products({
 
   const { data } = useData({
     apiName: "checkoutApi",
-    queryKey: VALIDATE_TAGS.Products,
+    queryKey: QUERY_TAGS.Products,
   });
 
   const filterData = useMemo(() => {

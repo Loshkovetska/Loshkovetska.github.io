@@ -7,7 +7,7 @@ import Dialog from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ScrollArea } from "@/components/ui/scrollarea";
-import { VALIDATE_TAGS } from "@/lib/constants";
+import { QUERY_TAGS } from "@/lib/constants";
 import { usePagination } from "@/lib/hooks";
 import { useSearchMoviesQuery } from "@/lib/services";
 import { cn } from "@/lib/utils";
@@ -19,7 +19,7 @@ export default function SearchDialog() {
   const [inputValue, setInputValue] = useState("");
 
   const { page, canFetchNext, canFetchPrevious, handlePageChange, setPage } =
-    usePagination(VALIDATE_TAGS.SearchMovie);
+    usePagination(QUERY_TAGS.SearchMovie);
 
   const { data } = useSearchMoviesQuery(`query=${inputValue}&page=${page}`, {
     skip: inputValue.length < 3,

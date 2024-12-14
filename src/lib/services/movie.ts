@@ -1,18 +1,18 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-import { VALIDATE_TAGS } from "@/lib/constants";
+import { QUERY_TAGS } from "@/lib/constants";
 import { GenreResultType, SearchResultType } from "@/types";
 import { ReviewsResponseType } from "@/types/review";
 
 export const moviesApi = createApi({
   reducerPath: "moviesApi",
   tagTypes: [
-    VALIDATE_TAGS.SearchMovie,
-    VALIDATE_TAGS.NowRealesedMovies,
-    VALIDATE_TAGS.FutureReleasedMovies,
-    VALIDATE_TAGS.MovieGenres,
-    VALIDATE_TAGS.MoviesPerPeriod,
-    VALIDATE_TAGS.Reviews,
+    QUERY_TAGS.SearchMovie,
+    QUERY_TAGS.NowRealesedMovies,
+    QUERY_TAGS.FutureReleasedMovies,
+    QUERY_TAGS.MovieGenres,
+    QUERY_TAGS.MoviesPerPeriod,
+    QUERY_TAGS.Reviews,
   ],
   baseQuery: fetchBaseQuery({
     baseUrl: "https://api.themoviedb.org/3/",
@@ -27,21 +27,19 @@ export const moviesApi = createApi({
     searchMovies: builder.query<SearchResultType, string>({
       query: (query: string) =>
         `search/movie?${query}&include_adult=true&sort_by=popularity.desc`,
-      providesTags: [VALIDATE_TAGS.SearchMovie],
+      providesTags: [QUERY_TAGS.SearchMovie],
     }),
     releasedMovies: builder.query<SearchResultType, boolean>({
       query: (isNext: boolean = true) => {
         return `movie/${isNext ? "upcoming" : "now_playing"}?include_adult=true&language=en-US&page=1`;
       },
       providesTags: (res, e, arg) => [
-        arg
-          ? VALIDATE_TAGS.FutureReleasedMovies
-          : VALIDATE_TAGS.NowRealesedMovies,
+        arg ? QUERY_TAGS.FutureReleasedMovies : QUERY_TAGS.NowRealesedMovies,
       ],
     }),
     movieGenres: builder.query<GenreResultType, void>({
       query: () => `genre/movie/list?language=en`,
-      providesTags: [VALIDATE_TAGS.MovieGenres],
+      providesTags: [QUERY_TAGS.MovieGenres],
     }),
     moviesPerPeriod: builder.query<
       SearchResultType,
@@ -49,14 +47,14 @@ export const moviesApi = createApi({
     >({
       query: (args) =>
         `discover/movie?include_adult=false&include_video=false&language=en-US&page=1&primary_release_date.gte=${args.startDate}&primary_release_date.lte=${args.endDate}&sort_by=popularity.desc`,
-      providesTags: [VALIDATE_TAGS.MoviesPerPeriod],
+      providesTags: [QUERY_TAGS.MoviesPerPeriod],
     }),
     movieReviews: builder.query<
       ReviewsResponseType,
       { id: number; page: number }
     >({
       query: (args) => `movie/${args.id}/reviews?page=${args.page}`,
-      providesTags: [VALIDATE_TAGS.Reviews],
+      providesTags: [QUERY_TAGS.Reviews],
     }),
   }),
 });
