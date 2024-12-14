@@ -1,6 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
@@ -25,7 +25,7 @@ export default function Payment({
 }: PaymentPropType) {
   const [isOpen, setOpen] = useState(true);
   const router = useRouter();
-  const [mutate, { isLoading, isSuccess }] = useConfirmOrderMutation();
+  const [mutate, { isLoading }] = useConfirmOrderMutation();
   const form = useForm({
     defaultValues: {
       email: "",
@@ -45,14 +45,10 @@ export default function Payment({
         email: values.email,
         tel: values.tel || "",
         name: values.name,
-      });
+      }).then(() => router.push("/"));
     },
-    [order, mutate]
+    [order, router, mutate]
   );
-
-  useEffect(() => {
-    isSuccess && router.push("/");
-  }, [router, isSuccess]);
 
   return (
     <Form {...form}>
