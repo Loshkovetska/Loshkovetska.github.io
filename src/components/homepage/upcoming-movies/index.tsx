@@ -16,7 +16,7 @@ export default function UpcomingMovies({
   current?: boolean;
 }) {
   const { data } = useReleasedMoviesQuery(!current);
-  useMovieGenresQuery(undefined);
+  useMovieGenresQuery();
 
   return (
     <Carousel

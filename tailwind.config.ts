@@ -40,6 +40,9 @@ export default {
         full: "1000000000",
         50: "50",
       },
+      gridTemplateColumns: {
+        13: "grid-template-columns(13, 1fr)",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

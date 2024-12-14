@@ -8,6 +8,7 @@ type RateBlockPropType = {
   vote_average: number;
   starClassName?: string;
   totalReviewVisible?: boolean;
+  titleClassName?: string;
 };
 
 export default function RateBlock({
@@ -15,6 +16,7 @@ export default function RateBlock({
   starClassName,
   totalReviews,
   totalReviewVisible,
+  titleClassName,
 }: RateBlockPropType) {
   const getRate = useCallback(() => {
     const convertTo5 = Math.floor(vote_average / 2);
@@ -37,7 +39,9 @@ export default function RateBlock({
   return (
     <div className="flex items-center">
       {totalReviewVisible && (
-        <span className="mr-3 text-xl font-bold text-white">
+        <span
+          className={cn("mr-3 text-xl font-bold text-white", titleClassName)}
+        >
           {totalReviews}
         </span>
       )}

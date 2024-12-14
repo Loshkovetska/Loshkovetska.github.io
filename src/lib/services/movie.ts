@@ -39,7 +39,7 @@ export const moviesApi = createApi({
           : VALIDATE_TAGS.NowRealesedMovies,
       ],
     }),
-    movieGenres: builder.query<GenreResultType, undefined>({
+    movieGenres: builder.query<GenreResultType, void>({
       query: () => `genre/movie/list?language=en`,
       providesTags: [VALIDATE_TAGS.MovieGenres],
     }),

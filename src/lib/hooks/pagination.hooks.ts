@@ -1,20 +1,12 @@
 "use client";
 import { useCallback, useMemo, useState } from "react";
 
-import { useAppSelector } from "@/lib/hooks";
-import { ReviewsResponseType, SearchResultType } from "@/types";
+import { useData } from "@/lib/hooks";
 
 export const usePagination = (queryKey: string) => {
-  const state = useAppSelector((state) => state.moviesApi.queries);
   const [page, setPage] = useState(1);
 
-  const data = useMemo(
-    () =>
-      Object.values(state).find((s) => s?.endpointName === queryKey)?.data as
-        | SearchResultType
-        | ReviewsResponseType,
-    [state, queryKey]
-  );
+  const { data } = useData({ apiName: "moviesApi", queryKey: queryKey });
 
   const { canFetchNext, canFetchPrevious } = useMemo(() => {
     if (!data) return { canFetchNext: false, canFetchPrevious: false };

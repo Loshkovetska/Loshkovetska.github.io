@@ -3,10 +3,9 @@ import { useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
+import Agreement from "@/components/common/agreement";
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Form, FormElement } from "@/components/ui/form";
-import { Label } from "@/components/ui/label";
 import { loginScheme } from "@/lib/scheme";
 
 export default function SignInForm() {
@@ -21,16 +20,6 @@ export default function SignInForm() {
     []
   );
 
-  const onCheck = useCallback(
-    (val: boolean) => {
-      form.setValue("remember", val ? 1 : 0, {
-        shouldDirty: true,
-        shouldTouch: true,
-        shouldValidate: true,
-      });
-    },
-    [form]
-  );
   return (
     <>
       <Form {...form}>
@@ -49,13 +38,11 @@ export default function SignInForm() {
             showPassIcon
             itemClassName="w-full"
           />
-          <Label className="flex cursor-pointer items-center gap-3 text-white">
-            <Checkbox
-              value={form.getValues("remember")}
-              onCheckedChange={onCheck}
-            />
-            Remember me?
-          </Label>
+          <Agreement
+            label="Remember me?"
+            name="remember"
+            form={form}
+          />
         </div>
       </Form>
       <Button

@@ -12,4 +12,11 @@ const contactScheme = z.object({
   comment: z.string().min(10),
 });
 
-export { contactScheme, loginScheme };
+const paymentScheme = z.object({
+  email: z.string().email("Wrong email"),
+  agree: z.number().min(1),
+  name: z.string().min(3),
+  tel: z.string().min(10).optional(),
+});
+
+export { contactScheme, loginScheme, paymentScheme };

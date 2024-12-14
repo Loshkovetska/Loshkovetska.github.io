@@ -1,19 +1,15 @@
 "use client";
-import { useCallback, useMemo } from "react";
+import { useCallback } from "react";
 
 import { VALIDATE_TAGS } from "@/lib/constants";
-import { useAppSelector } from "@/lib/hooks";
+import { useData } from "@/lib/hooks";
 import { GenreResultType } from "@/types";
 
 export const useGenres = (listView: boolean = true) => {
-  const state = useAppSelector((state) => state.moviesApi.queries);
-  const genres = useMemo(
-    () =>
-      Object.values(state).find(
-        (s) => s?.endpointName === VALIDATE_TAGS.MovieGenres
-      )?.data as GenreResultType,
-    [state]
-  );
+  const { data: genres }: { data: GenreResultType } = useData({
+    apiName: "moviesApi",
+    queryKey: VALIDATE_TAGS.MovieGenres,
+  });
 
   const getGenresList = useCallback(
     (ids: number[]) => {
