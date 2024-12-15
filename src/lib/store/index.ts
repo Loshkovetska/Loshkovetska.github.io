@@ -10,10 +10,11 @@ export const makeStore = () => {
       [generalApi.reducerPath]: generalApi.reducer,
     },
     middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware()
-        .concat(moviesApi.middleware)
-        .concat(checkoutApi.middleware)
-        .concat(generalApi.middleware),
+      getDefaultMiddleware().concat([
+        moviesApi.middleware,
+        checkoutApi.middleware,
+        generalApi.middleware,
+      ]),
   });
 };
 
