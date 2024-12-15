@@ -1,52 +1,26 @@
 export const NAV_MENU_LIST = [
   {
     to: "/account",
-    title: "Мій профіль",
+    title: "Profile",
   },
   {
     to: "/news",
-    title: "Новини",
+    title: "News",
   },
   {
     to: "/store",
-    title: "Кіномаркет",
+    title: "Store",
   },
   {
     to: "/discounts",
-    title: "Акції та знижки",
-  },
-  {
-    to: "#",
-    title: "Наші проекти",
-    subList: [
-      {
-        to: "/museum",
-        title: "Музей кіно",
-      },
-      {
-        to: "/school",
-        title: "Школа кіно",
-      },
-      {
-        to: "/gallery",
-        title: "Фотогалерея",
-      },
-      {
-        to: "/club",
-        title: "Кіноклуб",
-      },
-      {
-        to: "/finding",
-        title: "Краудфайндінг",
-      },
-    ],
+    title: "Sales And Discounts",
   },
   {
     to: "/about",
-    title: "Про нас",
+    title: "About Us",
   },
   {
     to: "/contacts",
-    title: "Контакти",
+    title: "Contact Us",
   },
 ];

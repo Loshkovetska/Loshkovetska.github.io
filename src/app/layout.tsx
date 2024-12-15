@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import { PropsWithChildren } from "react";
 
 import Providers from "@/providers";
 
@@ -10,12 +9,12 @@ export const metadata: Metadata = {
   description: "Watch movies with us",
 };
 
-export default function RootLayout(props: PropsWithChildren) {
+export default function RootLayout(props: any) {
   return (
     <html lang="en">
       <head></head>
       <body className="antialiased">
-        <Providers>{props.children}</Providers>
+        <Providers session={props.session}>{props.children}</Providers>
       </body>
     </html>
   );

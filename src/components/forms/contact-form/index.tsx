@@ -1,6 +1,6 @@
 "use client";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
@@ -9,10 +9,13 @@ import { Button } from "@/components/ui/button";
 import { Form, FormElement } from "@/components/ui/form";
 import { contactScheme } from "@/lib/scheme";
 import { useContactUsMutation } from "@/lib/services";
+import { useSession } from "next-auth/react";
 
 export default function ContactForm() {
   const [isOpen, setOpen] = useState(false);
   const [mutate, { isLoading }] = useContactUsMutation();
+  const { data: session } = useSession();
+
   const form = useForm({
     defaultValues: {
       name: "",
@@ -32,6 +35,16 @@ export default function ContactForm() {
     },
     [form, mutate]
   );
+
+  useEffect(() => {
+    if (session?.user) {
+      form.reset({
+        email: session?.user?.email || "",
+        name: session?.user?.name || "",
+        comment: "",
+      });
+    }
+  }, [session]);
 
   return (
     <div className="mx-auto w-full max-w-[600px]">

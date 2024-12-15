@@ -8,4 +8,10 @@ enum QUERY_TAGS {
   "Products" = "products",
 }
 
-export { QUERY_TAGS };
+const VALIDATION_OPTIONS = {
+  shouldDirty: true,
+  shouldTouch: true,
+  shouldValidate: true,
+};
+
+export { QUERY_TAGS, VALIDATION_OPTIONS };

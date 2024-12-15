@@ -16,7 +16,14 @@ export const generalApi = createApi({
         body,
       }),
     }),
+    signUp: builder.mutation<void, FormData>({
+      query: (body) => ({
+        url: "auth/sign-up",
+        method: "POST",
+        body,
+      }),
+    }),
   }),
 });
 
-export const { useContactUsMutation } = generalApi;
+export const { useContactUsMutation, useSignUpMutation } = generalApi;

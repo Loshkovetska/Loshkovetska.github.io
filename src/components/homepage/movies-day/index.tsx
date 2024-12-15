@@ -1,6 +1,6 @@
 "use client";
 import dayjs from "dayjs";
-import { useMemo, useState } from "react";
+import { useCallback, useState } from "react";
 
 import DaysSlider from "@/components/homepage/movies-day/days-slider";
 import MoviesList from "@/components/homepage/movies-day/movies-list";
@@ -8,7 +8,7 @@ import MoviesList from "@/components/homepage/movies-day/movies-list";
 export default function MoviesDay() {
   const [currentDate, setDate] = useState(dayjs().toDate());
 
-  const nextDate = useMemo(() => {
+  const getNextDate = useCallback(() => {
     const next = new Date(
       currentDate.getFullYear(),
       currentDate.getMonth() + 1,
@@ -26,7 +26,7 @@ export default function MoviesDay() {
         />
         <MoviesList
           currentDate={currentDate}
-          nextDate={nextDate}
+          nextDate={getNextDate()}
         />
       </div>
     </section>

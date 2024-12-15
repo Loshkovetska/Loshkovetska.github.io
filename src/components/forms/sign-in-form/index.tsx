@@ -7,6 +7,7 @@ import Agreement from "@/components/common/agreement";
 import { Button } from "@/components/ui/button";
 import { Form, FormElement } from "@/components/ui/form";
 import { loginScheme } from "@/lib/scheme";
+import { signIn } from "next-auth/react";
 
 export default function SignInForm() {
   const form = useForm({
@@ -15,10 +16,9 @@ export default function SignInForm() {
     mode: "onChange",
   });
 
-  const handleSubmit = useCallback(
-    (values: z.infer<typeof loginScheme>) => {},
-    []
-  );
+  const handleSubmit = useCallback((values: z.infer<typeof loginScheme>) => {
+    signIn("credentials", values);
+  }, []);
 
   return (
     <>

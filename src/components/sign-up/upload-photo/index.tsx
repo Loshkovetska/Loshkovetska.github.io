@@ -7,6 +7,7 @@ import { UploadPhotoIcon } from "@/components/sign-up/tabs/icons";
 import { SignUpFormType } from "@/components/sign-up/type";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { VALIDATION_OPTIONS } from "@/lib/constants";
 
 export default function UploadPhoto({ form }: { form: SignUpFormType }) {
   const file = useWatch({ control: form.control, name: "file" });
@@ -20,11 +21,7 @@ export default function UploadPhoto({ form }: { form: SignUpFormType }) {
 
   const onUpload = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
-      form.setValue("file", e.target.files?.[0], {
-        shouldDirty: true,
-        shouldTouch: true,
-        shouldValidate: true,
-      });
+      form.setValue("file", e.target.files?.[0], VALIDATION_OPTIONS);
     },
     [form]
   );

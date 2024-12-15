@@ -17,7 +17,7 @@ export default function Navigation() {
             <FaBars className="fill-white/90 stroke-white/90 group-hover:fill-white group-hover:stroke-white" />
           </button>
         }
-        className="mt-4 w-screen border-none bg-dark/30 pt-6 backdrop-blur-3xl lg:mt-6 lg:w-[232px]"
+        className="mt-4 w-screen border-none bg-dark/30 pt-6 backdrop-blur-3xl lg:mt-6 lg:w-[320px] h-screen"
       >
         <NavigationMenu />
         <SocialNetworks className="px-8" />

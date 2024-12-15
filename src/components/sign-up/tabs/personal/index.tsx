@@ -7,6 +7,7 @@ import UploadPhoto from "@/components/sign-up/upload-photo";
 import { FormElement } from "@/components/ui/form";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio";
+import { VALIDATION_OPTIONS } from "@/lib/constants";
 
 type PersonalTabPropType = {
   form: SignUpFormType;
@@ -16,11 +17,7 @@ type PersonalTabPropType = {
 export default function PersonalTab({ form, onContinue }: PersonalTabPropType) {
   const onGenderChange = useCallback(
     (v: string) => {
-      form.setValue("gender", v, {
-        shouldDirty: true,
-        shouldTouch: true,
-        shouldValidate: true,
-      });
+      form.setValue("gender", v, VALIDATION_OPTIONS);
     },
     [form]
   );
@@ -59,26 +56,26 @@ export default function PersonalTab({ form, onContinue }: PersonalTabPropType) {
       >
         <div className="flex items-center space-x-2">
           <RadioGroupItem
-            value="man"
-            id="man"
+            value="male"
+            id="male"
           />
           <Label
-            htmlFor="man"
+            htmlFor="male"
             className="text-white/80"
           >
-            Man
+            Male
           </Label>
         </div>
         <div className="flex items-center space-x-2">
           <RadioGroupItem
-            value="woman"
-            id="woman"
+            value="female"
+            id="female"
           />
           <Label
-            htmlFor="woman"
+            htmlFor="female"
             className="text-white/80"
           >
-            Woman
+            Female
           </Label>
         </div>
       </RadioGroup>

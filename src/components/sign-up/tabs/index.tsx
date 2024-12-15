@@ -5,6 +5,7 @@ type TabsContentPropType = {
   title: string;
   form: SignUpFormType;
   buttonTitle?: string;
+  loading?: boolean;
   onClick: () => void;
 } & React.PropsWithChildren;
 
@@ -13,6 +14,7 @@ export default function TabsContent({
   children,
   form,
   buttonTitle,
+  loading,
   onClick,
 }: TabsContentPropType) {
   return (
@@ -25,6 +27,7 @@ export default function TabsContent({
         <Button
           className="mt-4 w-full"
           disabled={!form.formState.isValid}
+          loading={loading}
           onClick={onClick}
         >
           {buttonTitle || "Continue"}

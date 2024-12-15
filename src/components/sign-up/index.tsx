@@ -9,12 +9,14 @@ import PersonalTab from "@/components/sign-up/tabs/personal";
 import { SignUpType } from "@/components/sign-up/type";
 import { Form } from "@/components/ui/form";
 import { contactTabScheme, personalScheme } from "@/lib/scheme";
-import { useMovieGenresQuery } from "@/lib/services";
+import { useMovieGenresQuery, useSignUpMutation } from "@/lib/services";
 import dayjs from "dayjs";
+import { signIn } from "next-auth/react";
 
 export default function SignUpContent() {
   useMovieGenresQuery();
   const [tabIndex, setTab] = useState(0);
+  const [mutate, { isLoading }] = useSignUpMutation();
 
   const scheme = useMemo(
     () => (!tabIndex ? personalScheme : contactTabScheme),
@@ -27,7 +29,7 @@ export default function SignUpContent() {
       surname: "",
       userName: "",
       birthDay: dayjs().format("YYYY-MM-DD"),
-      gender: "man",
+      gender: "male",
       lovedMovies: [],
       file: "",
       //   ---
@@ -53,12 +55,30 @@ export default function SignUpContent() {
   );
 
   const onSubmit = useCallback(() => {
+    const fd = new FormData();
     const values: any = form.getValues();
 
     delete values.agree;
     delete values.rep_email;
     delete values.rep_password;
-    console.log(values);
+
+    Object.entries(values).forEach(([key, value]) => {
+      if (key === "file") {
+        fd.append("file", value as Blob);
+      } else fd.append(key, String(value));
+    });
+
+    mutate(fd).then(async (res) => {
+      console.log(res);
+      if (!res.error) {
+        await signIn("credentials", {
+          redirect: true,
+          callbackUrl: "/",
+          email: values.email,
+          password: values.password,
+        });
+      }
+    });
   }, []);
 
   return (
@@ -79,6 +99,7 @@ export default function SignUpContent() {
             <ContactTab
               form={form}
               onClick={form.handleSubmit(onSubmit)}
+              loading={isLoading}
             />
           )}
         </div>

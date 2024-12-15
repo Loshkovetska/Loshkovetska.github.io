@@ -1,5 +1,6 @@
 import { SignUpFormType } from "@/components/sign-up/type";
 import { Select } from "@/components/ui/select";
+import { VALIDATION_OPTIONS } from "@/lib/constants";
 import { useGenres } from "@/lib/hooks";
 import { useCallback } from "react";
 import { useWatch } from "react-hook-form";
@@ -19,11 +20,7 @@ export default function GenresSelect({ form }: { form: SignUpFormType }) {
         present
           ? selectedGenres.filter((s) => s !== val)
           : [...selectedGenres, val],
-        {
-          shouldDirty: true,
-          shouldTouch: true,
-          shouldValidate: true,
-        }
+        VALIDATION_OPTIONS
       );
     },
     [selectedGenres]

@@ -184,9 +184,9 @@ DropdownMenuShortcut.displayName = "DropdownMenuShortcut";
 type DropdownMenuPropType = {
   trigger: React.ReactNode;
   label?: string;
-  children: React.ReactNode[];
   className?: string;
-};
+} & React.PropsWithChildren;
+
 const DropdownMenu = ({
   trigger,
   label,

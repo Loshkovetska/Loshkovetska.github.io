@@ -3,18 +3,23 @@ import TabsContent from "@/components/sign-up/tabs";
 import { SignUpFormType } from "@/components/sign-up/type";
 import { FormElement } from "@/components/ui/form";
 
+type ContactTabPropType = {
+  form: SignUpFormType;
+  loading?: boolean;
+  onClick: () => void;
+};
+
 export default function ContactTab({
   form,
+  loading,
   onClick,
-}: {
-  form: SignUpFormType;
-  onClick: () => void;
-}) {
+}: ContactTabPropType) {
   return (
     <TabsContent
       form={form}
       title="Provide Contact Data to Us"
       buttonTitle="Sign Up"
+      loading={loading}
       onClick={onClick}
     >
       <FormElement
