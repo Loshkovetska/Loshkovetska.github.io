@@ -1,5 +1,5 @@
 export const HEADER_TABS = {
-  registration: [
+  "sign-up": [
     {
       id: "1",
       title: "Personal Info",

@@ -193,6 +193,7 @@ type FormElementPropType = {
   label?: string;
   showPassIcon?: boolean;
   isTextArea?: boolean;
+  inputClassName?: string;
 };
 
 const FormElement = ({
@@ -206,6 +207,7 @@ const FormElement = ({
   label,
   showPassIcon,
   isTextArea,
+  inputClassName,
 }: FormElementPropType) => {
   const [dynamicType, setDynamicType] = React.useState(false);
   return (
@@ -241,6 +243,7 @@ const FormElement = ({
                     )
                   ) : undefined
                 }
+                inputClassName={inputClassName}
               />
             )}
           </FormControl>

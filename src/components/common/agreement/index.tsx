@@ -13,7 +13,7 @@ type AgreementPropType = {
 export default function Agreement({ name, form, label }: AgreementPropType) {
   const onCheck = useCallback(
     (val: boolean) => {
-      form.setValue(name, val ? 1 : 0, {
+      form.setValue(name, val, {
         shouldDirty: true,
         shouldTouch: true,
         shouldValidate: true,

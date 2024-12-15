@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import { HEADER_TABS } from "./constants";
 
 type HeaderTabsPropType = {
-  page: "registration" | "store";
+  page: "sign-up" | "store";
   tabIndex?: number;
   handleTabChange?: (ind: number) => void;
 };

@@ -1,5 +1,5 @@
 "use client";
-import { useCallback } from "react";
+import { useCallback, useMemo } from "react";
 
 import { QUERY_TAGS } from "@/lib/constants";
 import { useData } from "@/lib/hooks";
@@ -26,7 +26,10 @@ export const useGenres = (listView: boolean = true) => {
     [genres, listView]
   );
 
-  return {
-    getGenresList,
-  };
+  const genresNames = useMemo(
+    () => genres?.genres.map((g) => g.name) || [],
+    [genres]
+  );
+
+  return { genres, genresNames, getGenresList };
 };

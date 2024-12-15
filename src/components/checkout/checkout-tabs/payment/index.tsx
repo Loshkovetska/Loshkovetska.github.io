@@ -31,7 +31,7 @@ export default function Payment({
       email: "",
       tel: "",
       name: "",
-      agree: 0,
+      agree: false,
     },
     resolver: zodResolver(paymentScheme),
     mode: "onChange",
@@ -39,7 +39,6 @@ export default function Payment({
 
   const onSubmit = useCallback(
     (values: z.infer<typeof paymentScheme>) => {
-      console.log(values);
       mutate({
         ...order,
         email: values.email,

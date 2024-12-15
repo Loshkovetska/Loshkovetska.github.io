@@ -11,7 +11,7 @@ import { loginScheme } from "@/lib/scheme";
 export default function SignInForm() {
   const form = useForm({
     resolver: zodResolver(loginScheme),
-    defaultValues: { email: "", password: "", remember: 0 },
+    defaultValues: { email: "", password: "", remember: false },
     mode: "onChange",
   });
 

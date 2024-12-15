@@ -83,7 +83,6 @@ const SelectContent = React.forwardRef<
       position={position}
       {...props}
     >
-      <SelectScrollUpButton />
       <SelectPrimitive.Viewport
         className={cn(
           "p-1 bg-white",
@@ -93,7 +92,6 @@ const SelectContent = React.forwardRef<
       >
         {children}
       </SelectPrimitive.Viewport>
-      <SelectScrollDownButton />
     </SelectPrimitive.Content>
   </SelectPrimitive.Portal>
 ));
@@ -113,8 +111,10 @@ SelectLabel.displayName = SelectPrimitive.Label.displayName;
 
 const SelectItem = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Item>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Item>
->(({ className, children, ...props }, ref) => (
+  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Item> & {
+    multiple?: boolean;
+  }
+>(({ className, children, multiple, ...props }, ref) => (
   <SelectPrimitive.Item
     ref={ref}
     className={cn(
@@ -124,11 +124,13 @@ const SelectItem = React.forwardRef<
     {...props}
   >
     <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
-    <span className="absolute left-2 flex size-3.5 items-center justify-center">
-      <SelectPrimitive.ItemIndicator>
-        <FaCheck className="size-4" />
-      </SelectPrimitive.ItemIndicator>
-    </span>
+    {!multiple && (
+      <span className="absolute left-2 flex size-3.5 items-center justify-center">
+        <SelectPrimitive.ItemIndicator>
+          <FaCheck className="size-4" />
+        </SelectPrimitive.ItemIndicator>
+      </span>
+    )}
   </SelectPrimitive.Item>
 ));
 SelectItem.displayName = SelectPrimitive.Item.displayName;
@@ -146,6 +148,7 @@ const SelectSeparator = React.forwardRef<
 SelectSeparator.displayName = SelectPrimitive.Separator.displayName;
 
 type SelectPropType = {
+  multiple?: boolean;
   options: string[];
   placeholder: string;
   triggerClassName?: string;
@@ -158,6 +161,7 @@ const Select = ({
   placeholder,
   triggerClassName,
   value,
+  multiple,
   onValueChange,
 }: SelectPropType) => {
   return (
@@ -169,15 +173,26 @@ const Select = ({
         <SelectValue
           className="text-white"
           placeholder={placeholder}
-        />
+        >
+          {value}
+        </SelectValue>
       </SelectTrigger>
-      <SelectContent>
+      <SelectContent className="max-h-[180px]">
         {options.map((option) => (
           <SelectItem
+            className={cn(
+              multiple
+                ? "[&>span]:w-full [&>span]:flex [&>span]:items-center [&>span]:justify-between cursor-pointer"
+                : ""
+            )}
             value={option}
             key={option}
+            multiple={multiple}
           >
-            {option}
+            {option}{" "}
+            {multiple && value?.includes(option) && (
+              <FaCheck className="size-4 absolute left-2" />
+            )}
           </SelectItem>
         ))}
       </SelectContent>

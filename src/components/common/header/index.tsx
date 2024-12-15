@@ -5,7 +5,7 @@ import Navigation from "../navigation";
 import HeaderFunc from "./header-func";
 
 type HeaderPropType = {
-  page?: "registration" | "store";
+  page?: "sign-up" | "store";
   tabIndex?: number;
   handleTabChange?: (num: number) => void;
 };
